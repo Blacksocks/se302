@@ -53,3 +53,9 @@ Il faut determiner la valeur de R
 **R = 2.2 ohm**
 
 ### Exercice 2
+
+Pour faire un reset a l'etat bas, on peut brancher le reset a un bouton poussoir lui meme relie a la masse, puis ajouter une resistance de pull up.
+
+![exo1_4.png](exo1_4.png)
+
+## Exercice 3
