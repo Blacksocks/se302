@@ -22,7 +22,8 @@ Pour calculer la valeur de la resistance, voici la procedure.
 **R = 100 ohm**
 ### ----
 
-Le shema doit etre modifie etant donne qu une tension d'alimentation doit etre utilisee:
+Le shema doit etre modifie etant donne qu une tension d'alimentation doit etre utilisee.
+Aussi, il faut que l'intensité dans le GPIO soit negative pour ne pas limiter l'intensite dans la LED par le GPIO.
 
 ![exo1_2.png](exo1_2.png)
 
@@ -30,11 +31,10 @@ Le shema doit etre modifie etant donne qu une tension d'alimentation doit etre u
 * Soit U_max = Vcc - Ud4_min - Uled_min
 * On a donc U_max = 3.3 - 0 - 2.3 = 1V
 * Or U = R * I
-* Sachant que l'on cherche a maximiser I (I_max = 6mA) sans ne jamais exceder cette valeur, on va utiliser U_max et I_max pour calculer R
-* D'ou R = U_max / I_max = 1 / 0.06 = 166 ohm
-* Prenons R = 220 ohm pour utiliser une valeur standard
+* Sachant que l'on cherche a maximiser I sans ne jamais exceder I_max (= max(|-15|, 10) = 10mA), on va utiliser U_max et I_max pour calculer R
+* D'ou R = U_max / I_max = 1 / 0.01 = 100 ohm
 
-**R = 220 ohm**
+**R = 100 ohm**
 ### ----
 
 Si le courant maximum du GPIO est de 4mA mais que la LED supporte jusqu'a 500mA, il est preferable d'utiliser des parties puissance et commande.
