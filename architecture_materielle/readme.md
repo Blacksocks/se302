@@ -56,6 +56,21 @@ Il faut determiner la valeur de R
 
 Pour faire un reset a l'etat bas, on peut brancher le reset a un bouton poussoir lui meme relie a la masse, puis ajouter une resistance de pull up.
 
-![exo1_4.png](exo1_4.png)
+![exo2_1.png](exo2_1.png)
 
 ## Exercice 3
+
+Pour cet exercice, il faut que deux signaux (celui du reset et celui gere par l interrupteur) controlent deux sorties (entrees du microcontrolleur) de la maniere suivante:
+
+| rst_signal | safemode_signal | RESET | safemode (A0) |
+|------------|-----------------|-----|----------|
+| 0          | 0               | 0   | 0        |
+| 0          | 1               | 1   | 1        |
+| 1          | 0               | 1   | 0        |
+| 1          | 1               | 1   | 1        |
+
+Pour resumer ce tableau, rst_signal n'active que RESET tandis que safemode_signal active les deux sorties.
+
+Voici un shema qui permet cette configuration:
+
+![exo3_1.png](exo3_1.png)
