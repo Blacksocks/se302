@@ -35,11 +35,14 @@ Aussi, il faut que l'intensité dans le GPIO soit negative pour ne pas limiter l
 * D'ou R = U_max / I_max = 1 / 0.01 = 100 ohm
 
 **R = 100 ohm**
+
 ### ----
 
 Si le courant maximum du GPIO est de 4mA mais que la LED supporte jusqu'a 500mA, il est preferable d'utiliser des parties puissance et commande.
 
 ![exo1_3.png](exo1_3.png)
+
+## ATTENTION: Le drain doit etre connecte a la masse ! La resistance doit donc etre mise en haut du shema.
 
 Il faut determiner la valeur de R
 * On sait que Vcc = R * I + Uled
@@ -74,3 +77,5 @@ Pour resumer ce tableau, rst_signal n'active que RESET tandis que safemode_signa
 Voici un shema qui permet cette configuration:
 
 ![exo3_1.png](exo3_1.png)
+
+## ATTENTION: En mode GPIO, il peut y avoir un court-circut ! Ajouter un resistance a l'entree du GPIO.
