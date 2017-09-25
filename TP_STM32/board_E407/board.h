@@ -292,9 +292,9 @@
  * PA10 - OTG_FS_ID                 (input floating).
  * PA11 - OTG_FS_DM                 (input floating).
  * PA12 - OTG_FS_DP                 (input floating).
- * PA13 - SWDIO                     (input floating).
- * PA14 - SWCLK                     (input floating).
- * PA15 - PIN15                     (input floating).
+ * PA13 - SWDIO                     (input pullup).
+ * PA14 - SWCLK                     (input pulldown).
+ * PA15 - PIN15                     (input pullup).
  */
 #define VAL_GPIOA_MODER             (PIN_MODE_INPUT(GPIOA_BUTTON) |         \
                                      PIN_MODE_INPUT(GPIOA_PIN1) |           \
@@ -357,9 +357,9 @@
                                      PIN_PUPDR_FLOATING(GPIOA_OTG_FS_ID) |  \
                                      PIN_PUPDR_FLOATING(GPIOA_OTG_FS_DM) |  \
                                      PIN_PUPDR_FLOATING(GPIOA_OTG_FS_DP) |  \
-                                     PIN_PUPDR_FLOATING(GPIOA_SWDIO) |      \
-                                     PIN_PUPDR_FLOATING(GPIOA_SWCLK) |      \
-                                     PIN_PUPDR_FLOATING(GPIOA_PIN15))
+                                     PIN_PUPDR_PULLUP(GPIOA_SWDIO) |      \
+                                     PIN_PUPDR_PULLDOWN(GPIOA_SWCLK) |      \
+                                     PIN_PUPDR_PULLUP(GPIOA_PIN15))
 #define VAL_GPIOA_ODR               (PIN_ODR_HIGH(GPIOA_BUTTON) |           \
                                      PIN_ODR_HIGH(GPIOA_PIN1) |             \
                                      PIN_ODR_HIGH(GPIOA_PIN2) |             \
@@ -399,8 +399,8 @@
  * PB0  - PIN0                      (input floating).
  * PB1  - PIN1                      (input floating).
  * PB2  - PIN2                      (input floating).
- * PB3  - SWO                       (input floating).
- * PB4  - PIN4                      (input floating).
+ * PB3  - SWO                       (alternate 0).
+ * PB4  - PIN4                      (input pullup).
  * PB5  - PIN5                      (input floating).
  * PB6  - SCL                       (input floating).
  * PB7  - PIN7                      (input floating).
@@ -416,7 +416,7 @@
 #define VAL_GPIOB_MODER             (PIN_MODE_INPUT(GPIOB_PIN0) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN1) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN2) |           \
-                                     PIN_MODE_INPUT(GPIOB_SWO) |        \
+                                     PIN_MODE_ALTERNATE(GPIOB_SWO) |        \
                                      PIN_MODE_INPUT(GPIOB_PIN4) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN5) |           \
                                      PIN_MODE_INPUT(GPIOB_SCL) |        \
@@ -465,7 +465,7 @@
                                      PIN_PUPDR_FLOATING(GPIOB_PIN1) |         \
                                      PIN_PUPDR_FLOATING(GPIOB_PIN2) |         \
                                      PIN_PUPDR_FLOATING(GPIOB_SWO) |        \
-                                     PIN_PUPDR_FLOATING(GPIOB_PIN4) |         \
+                                     PIN_PUPDR_PULLUP(GPIOB_PIN4) |         \
                                      PIN_PUPDR_FLOATING(GPIOB_PIN5) |         \
                                      PIN_PUPDR_FLOATING(GPIOB_SCL) |        \
                                      PIN_PUPDR_FLOATING(GPIOB_PIN7) |         \
