@@ -300,17 +300,17 @@
                                      PIN_MODE_INPUT(GPIOA_PIN1) |           \
                                      PIN_MODE_INPUT(GPIOA_PIN2) |           \
                                      PIN_MODE_INPUT(GPIOA_PIN3) |           \
-                                     PIN_MODE_ALTERNATE(GPIOA_LRCK) |       \
-                                     PIN_MODE_ALTERNATE(GPIOA_SPC) |        \
-                                     PIN_MODE_ALTERNATE(GPIOA_SDO) |        \
-                                     PIN_MODE_ALTERNATE(GPIOA_SDI) |        \
+                                     PIN_MODE_INPUT(GPIOA_LRCK) |       \
+                                     PIN_MODE_INPUT(GPIOA_SPC) |        \
+                                     PIN_MODE_INPUT(GPIOA_SDO) |        \
+                                     PIN_MODE_INPUT(GPIOA_SDI) |        \
                                      PIN_MODE_INPUT(GPIOA_PIN8) |           \
                                      PIN_MODE_INPUT(GPIOA_VBUS_FS) |        \
-                                     PIN_MODE_ALTERNATE(GPIOA_OTG_FS_ID) |  \
-                                     PIN_MODE_ALTERNATE(GPIOA_OTG_FS_DM) |  \
-                                     PIN_MODE_ALTERNATE(GPIOA_OTG_FS_DP) |  \
-                                     PIN_MODE_ALTERNATE(GPIOA_SWDIO) |      \
-                                     PIN_MODE_ALTERNATE(GPIOA_SWCLK) |      \
+                                     PIN_MODE_INPUT(GPIOA_OTG_FS_ID) |  \
+                                     PIN_MODE_INPUT(GPIOA_OTG_FS_DM) |  \
+                                     PIN_MODE_INPUT(GPIOA_OTG_FS_DP) |  \
+                                     PIN_MODE_INPUT(GPIOA_SWDIO) |      \
+                                     PIN_MODE_INPUT(GPIOA_SWCLK) |      \
                                      PIN_MODE_INPUT(GPIOA_PIN15))
 #define VAL_GPIOA_OTYPER            (PIN_OTYPE_PUSHPULL(GPIOA_BUTTON) |     \
                                      PIN_OTYPE_PUSHPULL(GPIOA_PIN1) |       \
@@ -416,13 +416,13 @@
 #define VAL_GPIOB_MODER             (PIN_MODE_INPUT(GPIOB_PIN0) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN1) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN2) |           \
-                                     PIN_MODE_ALTERNATE(GPIOB_SWO) |        \
+                                     PIN_MODE_INPUT(GPIOB_SWO) |        \
                                      PIN_MODE_INPUT(GPIOB_PIN4) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN5) |           \
-                                     PIN_MODE_ALTERNATE(GPIOB_SCL) |        \
+                                     PIN_MODE_INPUT(GPIOB_SCL) |        \
                                      PIN_MODE_INPUT(GPIOB_PIN7) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN8) |           \
-                                     PIN_MODE_ALTERNATE(GPIOB_SDA) |        \
+                                     PIN_MODE_INPUT(GPIOB_SDA) |        \
                                      PIN_MODE_INPUT(GPIOB_CLK_IN) |         \
                                      PIN_MODE_INPUT(GPIOB_PIN11) |          \
                                      PIN_MODE_INPUT(GPIOB_PIN12) |          \
@@ -530,19 +530,19 @@
  * PC14 - PIN14                     (input pullup).
  * PC15 - PIN15                     (input pullup).
  */
-#define VAL_GPIOC_MODER             (PIN_MODE_OUTPUT(GPIOC_OTG_FS_POWER_ON) |\
+#define VAL_GPIOC_MODER             (PIN_MODE_INPUT(GPIOC_OTG_FS_POWER_ON) |\
                                      PIN_MODE_INPUT(GPIOC_PIN1) |           \
                                      PIN_MODE_INPUT(GPIOC_PIN2) |           \
                                      PIN_MODE_INPUT(GPIOC_PDM_OUT) |        \
                                      PIN_MODE_INPUT(GPIOC_PIN4) |           \
                                      PIN_MODE_INPUT(GPIOC_PIN5) |           \
                                      PIN_MODE_INPUT(GPIOC_PIN6) |           \
-                                     PIN_MODE_ALTERNATE(GPIOC_MCLK) |       \
+                                     PIN_MODE_INPUT(GPIOC_MCLK) |       \
                                      PIN_MODE_INPUT(GPIOC_PIN8) |           \
                                      PIN_MODE_INPUT(GPIOC_PIN9) |           \
-                                     PIN_MODE_ALTERNATE(GPIOC_SCLK) |       \
+                                     PIN_MODE_INPUT(GPIOC_SCLK) |       \
                                      PIN_MODE_INPUT(GPIOC_PIN11) |          \
-                                     PIN_MODE_ALTERNATE(GPIOC_SDIN) |       \
+                                     PIN_MODE_INPUT(GPIOC_SDIN) |       \
                                      PIN_MODE_INPUT(GPIOC_PIN13) |          \
                                      PIN_MODE_INPUT(GPIOC_PIN14) |          \
                                      PIN_MODE_INPUT(GPIOC_PIN15))
@@ -651,7 +651,7 @@
                                      PIN_MODE_INPUT(GPIOD_PIN1) |           \
                                      PIN_MODE_INPUT(GPIOD_PIN2) |           \
                                      PIN_MODE_INPUT(GPIOD_PIN3) |           \
-                                     PIN_MODE_OUTPUT(GPIOD_RESET) |         \
+                                     PIN_MODE_INPUT(GPIOD_RESET) |         \
                                      PIN_MODE_INPUT(GPIOD_OVER_CURRENT) |   \
                                      PIN_MODE_INPUT(GPIOD_PIN6) |           \
                                      PIN_MODE_INPUT(GPIOD_PIN7) |           \
@@ -659,10 +659,10 @@
                                      PIN_MODE_INPUT(GPIOD_PIN9) |           \
                                      PIN_MODE_INPUT(GPIOD_PIN10) |          \
                                      PIN_MODE_INPUT(GPIOD_PIN11) |          \
-                                     PIN_MODE_OUTPUT(GPIOD_LED4) |          \
-                                     PIN_MODE_OUTPUT(GPIOD_LED3) |          \
-                                     PIN_MODE_OUTPUT(GPIOD_LED5) |          \
-                                     PIN_MODE_OUTPUT(GPIOD_LED6))
+                                     PIN_MODE_INPUT(GPIOD_LED4) |          \
+                                     PIN_MODE_INPUT(GPIOD_LED3) |          \
+                                     PIN_MODE_INPUT(GPIOD_LED5) |          \
+                                     PIN_MODE_INPUT(GPIOD_LED6))
 #define VAL_GPIOD_OTYPER            (PIN_OTYPE_PUSHPULL(GPIOD_PIN0) |       \
                                      PIN_OTYPE_PUSHPULL(GPIOD_PIN1) |       \
                                      PIN_OTYPE_PUSHPULL(GPIOD_PIN2) |       \
@@ -767,7 +767,7 @@
 #define VAL_GPIOE_MODER             (PIN_MODE_INPUT(GPIOE_INT1) |           \
                                      PIN_MODE_INPUT(GPIOE_INT2) |           \
                                      PIN_MODE_INPUT(GPIOE_PIN2) |           \
-                                     PIN_MODE_OUTPUT(GPIOE_CS_SPI) |        \
+                                     PIN_MODE_INPUT(GPIOE_CS_SPI) |        \
                                      PIN_MODE_INPUT(GPIOE_PIN4) |           \
                                      PIN_MODE_INPUT(GPIOE_PIN5) |           \
                                      PIN_MODE_INPUT(GPIOE_PIN6) |           \
