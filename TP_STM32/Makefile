@@ -55,10 +55,16 @@ INCDIR = $(CHIBIOS)/os/license \
 # Compiler settings
 #
 
+# Compiler options here.
+ifeq ($(USE_OPT),)
+	USE_OPT = -O2 -g -std=gnu99
+endif
+
 MCU  = cortex-m4
 TRGT = arm-none-eabi-
 CC   = $(TRGT)gcc
 LD   = $(TRGT)gcc
+DB   = $(TRGT)gdb
 CP   = $(TRGT)objcopy
 AS   = $(TRGT)gcc -x assembler-with-cpp
 AR   = $(TRGT)ar
@@ -71,7 +77,7 @@ BIN  = $(CP) -O binary
 TOPT = -mthumb -DTHUMB
 
 # Define C warning options here
-CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
+CWARN = -Werror -Wall -Wextra -Wundef -Wstrict-prototypes
 
 #
 # Compiler settings
@@ -79,3 +85,14 @@ CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 
 RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
+
+startgdbserver:
+	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+
+stopgdbserver:
+	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
+
+debug: $(ELF) startgdbserver
+	$(DB) $<
+
+.PHONY: startgdbserver stopgdbserver debug
