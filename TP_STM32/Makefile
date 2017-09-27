@@ -73,9 +73,6 @@ TOPT = -mthumb -DTHUMB
 # Define C warning options here
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 
-# Define C++ warning options here
-CPPWARN = -Wall -Wextra -Wundef
-
 #
 # Compiler settings
 ##############################################################################
