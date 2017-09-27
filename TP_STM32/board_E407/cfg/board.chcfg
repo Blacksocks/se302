@@ -7,8 +7,8 @@
     <output_path>..</output_path>
     <hal_version>3.0.x</hal_version>
   </configuration_settings>
-    <board_name>Olimex STM32-E407</board_name>
-    <board_id>OLIMEX_STM32_E407</board_id>
+    <board_name>Olimex STM32-E407 (rev.D)</board_name>
+    <board_id>OLIMEX_STM32_E407_REV_D</board_id>
     <board_functions>
         <sdc_lld_is_card_inserted><![CDATA[  static bool last_status = false;
 
@@ -20,7 +20,7 @@
   return false;]]></sdc_lld_is_write_protected>
     </board_functions>
     <ethernet_phy>
-        <identifier>MII_KS8721_ID</identifier>
+        <identifier>MII_LAN8710A_ID</identifier>
         <bus_type>RMII</bus_type>
     </ethernet_phy>
     <subtype>STM32F407xx</subtype>
@@ -69,7 +69,7 @@
         <GPIOB>
             <pin0 ID="USB_FS_BUSON" Type="PushPull" Speed="Maximum"
                 Resistor="Floating" Level="Low" Mode="Output" Alternate="0" />
-            <pin1 ID="USB_HS_FAULT" Type="PushPull" Speed="Maximum"
+            <pin1 ID="USB_FS_FAULT" Type="PushPull" Speed="Maximum"
                 Resistor="Floating" Level="High" Mode="Input" Alternate="0" />
             <pin2 ID="BOOT1" Type="PushPull" Speed="Maximum" Resistor="Floating"
                 Level="High" Mode="Input" Alternate="0" />
@@ -225,7 +225,7 @@
                 Level="High" Mode="Input" Alternate="0" />
             <pin10 ID="" Type="PushPull" Speed="Maximum" Resistor="PullUp"
                 Level="High" Mode="Input" Alternate="0" />
-            <pin11 ID="USB_FS_FAULT" Type="PushPull" Speed="Maximum"
+            <pin11 ID="USB_HS_FAULT" Type="PushPull" Speed="Maximum"
                 Resistor="Floating" Level="High" Mode="Input" Alternate="0" />
             <pin12 ID="" Type="PushPull" Speed="Maximum" Resistor="PullUp"
                 Level="High" Mode="Input" Alternate="0" />
