@@ -3,18 +3,18 @@
 #
 
 # Define project name here
-PROJECT = se302
+PROJECT = se302vg
 
 # Imported source files and paths
 CHIBIOS = ../ChibiOS
 # Startup files.
 include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
-# HAL-OSAL files
+# HAL-OSAL files (optional).
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/hal/ports/STM32/STM32F4xx/platform.mk
 include board_E407/board.mk
 include $(CHIBIOS)/os/hal/osal/rt/osal.mk
-# RTOS files
+# RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 
@@ -36,7 +36,10 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
-        src/main.c
+       src/main.c
+
+# List ASM source files here
+ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
 INCDIR = $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
@@ -52,10 +55,9 @@ INCDIR = $(CHIBIOS)/os/license \
 # Compiler settings
 #
 
-MCU = cortex-m4
+MCU  = cortex-m4
 TRGT = arm-none-eabi-
-CC = $(TRGT)gcc
-DB = $(TRGT)gdb
+CC   = $(TRGT)gcc
 LD   = $(TRGT)gcc
 CP   = $(TRGT)objcopy
 AS   = $(TRGT)gcc -x assembler-with-cpp
@@ -78,26 +80,5 @@ CPPWARN = -Wall -Wextra -Wundef
 # Compiler settings
 ##############################################################################
 
-
 RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
-
-##############################################################################
-# Debug
-#
-
-# Start JLink Server
-gdbstart:
-	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
-
-# Stop JLink Server
-gdbstop:
-	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
-
-# Debug
-db: $(ELF) gdbstart
-	$(DB) $<
-
-#
-# Debug
-##############################################################################
