@@ -1,6 +1,6 @@
 
 
-int main(int argcn char * [] argv)
+int main(void)
 {
     return 0;
 }

@@ -1,66 +1,103 @@
+##############################################################################
+# Project, sources and paths
+#
+
+# Define project name here
+PROJECT = se302
+
+# Imported source files and paths
+CHIBIOS = ../ChibiOS
+# Startup files.
+include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
+# HAL-OSAL files
+include $(CHIBIOS)/os/hal/hal.mk
+include $(CHIBIOS)/os/hal/ports/STM32/STM32F4xx/platform.mk
+include board_E407/board.mk
+include $(CHIBIOS)/os/hal/osal/rt/osal.mk
+# RTOS files
+include $(CHIBIOS)/os/rt/rt.mk
+include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
+
+# Define linker script file here
+LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
+
+# C sources that can be compiled in ARM or THUMB mode depending on the global
+# setting.
+CSRC = $(STARTUPSRC) \
+       $(KERNSRC) \
+       $(PORTSRC) \
+       $(OSALSRC) \
+       $(HALSRC) \
+       $(PLATFORMSRC) \
+       $(BOARDSRC) \
+       $(TESTSRC) \
+       $(LWSRC) \
+       $(FATFSSRC) \
+       $(STREAMSSRC) \
+       $(SHELLSRC) \
+       $(CHIBIOS)/os/various/evtimer.c \
+        src/main.c
+
+INCDIR = $(CHIBIOS)/os/license \
+         $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
+         $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
+         $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
+         $(CHIBIOS)/os/various
+
+#
+# Project, sources and paths
+##############################################################################
+
+##############################################################################
+# Compiler settings
+#
+
 MCU = cortex-m4
 TRGT = arm-none-eabi-
 CC = $(TRGT)gcc
-GDB = $(TRGT)gdb
-OBJDUMP = $(TRGT)objdump
-AS = $(TRGT)as
+DB = $(TRGT)gdb
+LD   = $(TRGT)gcc
+CP   = $(TRGT)objcopy
+AS   = $(TRGT)gcc -x assembler-with-cpp
+AR   = $(TRGT)ar
+OD   = $(TRGT)objdump
+SZ   = $(TRGT)size
+HEX  = $(CP) -O ihex
+BIN  = $(CP) -O binary
 
-TRGT_ARCH    = -mcpu=$(MCU) -mthumb
-CFLAGS       = -c -std=gnu99 -g -O1 -Werror -Wall -Wextra
-LDFLAGS      = -nostdlib
-ASFLAGS      = -g -mcpu=$(MCU)
+# THUMB-specific options here
+TOPT = -mthumb -DTHUMB
 
-SRCS = main.c
-OBJS = $(subst .c,.o,$(SRCS))
-DEPS = $(subst .c,.d,$(SRCS))
-EXE = main
+# Define C warning options here
+CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 
-.PHONY : db gdbstart gdbstop sec as head seccont clean
+# Define C++ warning options here
+CPPWARN = -Wall -Wextra -Wundef
 
-# Create ouput (exe)
-$(EXE) : $(OBJS)
+#
+# Compiler settings
+##############################################################################
 
-# ====== OBJDUMP ======
 
-# Dump output sections informations
-sec: $(EXE)
-    $(OBJDUMP) -h $(EXE)
+RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
+include $(RULESPATH)/rules.mk
 
-# Display output assembly code
-as: $(EXE)
-    $(OBJDUMP) -d $(EXE)
-
-# Display ouput header
-head: $(EXE)
-    $(OBJDUMP) -x $(EXE)
-
-# Display ouput sections content
-seccont: $(EXE)
-    $(OBJDUMP) -s $(EXE)
-
-# ======= CLEAN =======
-
-# Remove temporary useful files
-clean:
-    rm -f $(EXE) $(OBJS) $(DEPS)
-
-# ======== GDB ========
+##############################################################################
+# Debug
+#
 
 # Start JLink Server
 gdbstart:
-    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
 # Stop JLink Server
 gdbstop:
-    @pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
+	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
 # Debug
 db: $(ELF) gdbstart
-    $(GDB) $<
+	$(DB) $<
 
-# === DEPENDENCIES ====
-
--include $(DEPS)
-
-%.d : %.c
-    $(CC) $(CFLAGS) $(TRGT_ARCH) -MM -MF $@ -MP $<
+#
+# Debug
+##############################################################################
