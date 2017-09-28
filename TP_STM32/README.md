@@ -21,19 +21,19 @@ To don't begin from scratch, I used demo project:
 <ChibiOS>/demos/<proc_familly>/<board>/
 ```
 I copied this files in my project
-> chconf.h
-> halconf.h
-> mcuconf.h
+> chconf.h  
+> halconf.h  
+> mcuconf.h  
 > Makefile
 
-I created a basic main.c program into a src/ folder:
+I created a basic main.c program into a src/
 ```c
 int main(void) {
     while(1);
 }
 ```
 
-Then, I change pin configuration by copying this folder into my project:
+Then, I changed pin configuration by copying this folder into my project:
 ```
 <ChibiOS>/os/hal/boards/<board>/
 ```
@@ -61,8 +61,8 @@ Doing ```make``` created an executable file <project>.elf
 
 ### J-Link
 
-To run program on board, I used J-Link debugger.
-I use this command to run JLinkGDBServer:
+To run program on board, I used J-Link debugger.  
+I used this command to run JLinkGDBServer:
 ```
 pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 ```
@@ -91,6 +91,6 @@ int main(void)
 ```
 
 If while loop is not reached during execution on board, there is probably an error.  
-I had an error using Olimex-STM32-E407  
-Into GDB, display position into c code using ```layout n``` and ```print <variable>``` to show error.  
+I had an error using Olimex-STM32-E407 ([soluce](http://www.chibios.com/forum/viewtopic.php?t=1040))  
+Into GDB, display position into c code using ```layout n``` and then ```print <variable>``` to show error.  
 I personally had to set ```HAL_USE_MAC``` to ```false``` into ```halconf.h```.
