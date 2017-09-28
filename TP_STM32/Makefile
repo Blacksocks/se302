@@ -86,17 +86,52 @@ CWARN = -Werror -Wall -Wextra -Wundef -Wstrict-prototypes
 RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
 
+##############################################################################
+# Debug
+#
+
+ELF = $(BUILDDIR)/$(PROJECT).elf
+
 startdb:
 	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
 stopdb:
 	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
-db: $(BUILDDIR)/$(PROJECT).elf
+db: $(ELF)
 	@echo "=============================================="
 	@echo "gdb help: http://www.delorie.com/gnu/docs/gdb/gdb_38.html"
-	@echo "load: load program in flash\nc: continue\nsi: single instruction\nsplit: user friendly interface\nq: quit"
+	@echo "load: load program in flash\nc: continue\nsi [<number of instructions>]: single instruction"
+	@echo "b <func/filename:linenum/\"*0x\"addr>: breakpoint\nsplit: user friendly interface\nq: quit"
 	@echo "=============================================="
 	$(DB) $<
+
+#
+# Debug
+##############################################################################
+
+##############################################################################
+# Objdump
+#
+
+# Dump output sections informations
+sec: $(ELF)
+	$(OD) -h $<
+
+# Display output assembly code
+as: $(ELF)
+	$(OD) -d $<
+
+# Display ouput header
+head: $(ELF)
+	$(OD) -x $<
+
+# Display ouput sections content
+seccont: $(ELF)
+	$(OD) -s $<
+
+#
+# Objdump
+##############################################################################
 
 .PHONY: startdb stopdb db
