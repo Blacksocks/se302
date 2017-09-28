@@ -93,6 +93,10 @@ stopdb:
 	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
 db: $(BUILDDIR)/$(PROJECT).elf
+	@echo "=============================================="
+	@echo "gdb help: http://www.delorie.com/gnu/docs/gdb/gdb_38.html"
+	@echo "load: load program in flash\nc: continue\nsi: single instruction\nsplit: user friendly interface\nq: quit"
+	@echo "=============================================="
 	$(DB) $<
 
 .PHONY: startdb stopdb db
