@@ -86,13 +86,13 @@ CWARN = -Werror -Wall -Wextra -Wundef -Wstrict-prototypes
 RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
 
-startgdbserver:
+startdb:
 	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
-stopgdbserver:
+stopdb:
 	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
-debug: $(ELF) startgdbserver
+db: $(BUILDDIR)/$(PROJECT).elf
 	$(DB) $<
 
-.PHONY: startgdbserver stopgdbserver debug
+.PHONY: startdb stopdb db
