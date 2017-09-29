@@ -1,5 +1,6 @@
 #include "ch.h"
 #include "hal.h"
+#include "led.h"
 
 int main(void)
 {
@@ -12,11 +13,10 @@ int main(void)
     halInit();
     chSysInit();
 
-    // set LED on GPIO C as output using pushpull mode
-    // pushpull means that output is either connect to VCC or to GND, no floating state
-    palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
-    // Switch off LED on GPIO C
-    palClearPad(GPIOC, GPIOC_LED);
+    // configure LED
+    init_led();
+    // switch on LED
+    led_on();
 
     while(1);
 }
