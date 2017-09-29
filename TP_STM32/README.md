@@ -69,10 +69,11 @@ pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device S
 And these ones in another terminal:
 ```
 arm-none-eabi-gdb build/<project>.elf
-split # use user friendly interface
-load  # load program in flash
-c     # run program
-q     # quit
+split     # use user friendly interface
+load      # load program in flash
+mon reset # reset CPU
+c         # run program
+q         # quit
 ```
 
 ## 3rd step: Use ChibiOS init functions
