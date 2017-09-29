@@ -4,6 +4,24 @@
 
 static virtual_timer_t led_timer;
 
+void pwm_callback(__attribute__((unused)) PWMDriver *pwmp)
+{
+    led_toggle();
+}
+
+static PWMConfig pwmcfg = {
+    1024,                           // frequency
+    1024,                           // PWM period
+    pwm_callback,                   // callback called each period
+   {{PWM_OUTPUT_ACTIVE_HIGH, NULL}, // first channel init
+    {PWM_OUTPUT_DISABLED, NULL},
+    {PWM_OUTPUT_DISABLED, NULL},
+    {PWM_OUTPUT_DISABLED, NULL}},
+    0,                              // TIM CR2 register init data
+    0                               // TIM DIER register init data
+};
+
+
 void led_callback(__attribute__((unused)) void * p)
 {
     // Restart timer
@@ -11,7 +29,7 @@ void led_callback(__attribute__((unused)) void * p)
     chVTSetI(&led_timer, MS2ST(500), led_callback, NULL);
     chSysUnlockFromISR();
     // Toggle LED
-    led_toggle();
+    //led_toggle();
 }
 
 int main(void)
@@ -33,5 +51,9 @@ int main(void)
     // Start timer
     chVTSet(&led_timer, MS2ST(500), led_callback, NULL);
 
-    while(1);
+    pwmStart(&PWMD3, &pwmcfg);
+    pwmEnableChannel(&PWMD3, 0, 512);
+
+    while(1)
+        chThdSleep(TIME_INFINITE);
 }

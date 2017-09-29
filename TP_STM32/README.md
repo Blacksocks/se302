@@ -106,4 +106,7 @@ palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL)
 ```
 I used ```PAL_MODE_OUTPUT_PUSHPULL``` because I wanted output either connected to VCC or to GND, no floating state.
 
-According to electrical schematic, I set this pin to high level: ```palClearPad(GPIOC, GPIOC_LED)```.
+According to electrical schematic, I set this pin to high level:
+```c
+palClearPad(GPIOC, GPIOC_LED)
+```
