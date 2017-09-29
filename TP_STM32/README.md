@@ -95,3 +95,15 @@ If while loop is not reached during execution on board, there is probably an err
 I had an error using Olimex-STM32-E407 ([soluce](http://www.chibios.com/forum/viewtopic.php?t=1040))  
 Into GDB, display position into c code using ```layout n``` and then ```print <variable>``` to show error.  
 I personally had to set ```HAL_USE_MAC``` to ```false``` into ```halconf.h```.
+
+## 4th step: LED blinking
+
+### LED on
+
+In order to switch on LED, I configured LED pin:
+```c
+palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL)
+```
+I used ```PAL_MODE_OUTPUT_PUSHPULL``` because I wanted output either connected to VCC or to GND, no floating state.
+
+According to electrical schematic, I set this pin to high level: ```palClearPad(GPIOC, GPIOC_LED)```.
