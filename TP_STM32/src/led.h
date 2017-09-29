@@ -5,19 +5,18 @@
 ** set LED on GPIO C as output using pushpull mode
 ** pushpull means that output is either connect to VCC or to GND, no floating state
 */
-void init_led(void);
+#define led_init() palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL)
 
 /* switch on LED
 */
-void led_on(void);
+#define led_on() palClearPad(GPIOC, GPIOC_LED)
 
 /* switch off LED
 */
-void led_off(void);
+#define led_off() palSetPad(GPIOC, GPIOC_LED)
 
-/* if led is off, switch on LED
-** if led if on, switch off LED
+/* toggle LED
 */
-void led_toogle(void);
+#define led_toggle() palTogglePad(GPIOC, GPIOC_LED)
 
 #endif // _LED_H_

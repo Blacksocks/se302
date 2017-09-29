@@ -36,8 +36,7 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
-       src/main.c \
-	   src/led.c
+       src/main.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -105,6 +104,7 @@ db: $(ELF)
 	@echo "mon halt: halt current execution\nload: load program in flash\nmon reset: reset CPU"
 	@echo "c: continue\nsi [<number of instructions>]: single instruction\nn: next instruction jumping functions"
 	@echo "b <func/filename:linenum/\"*0x\"addr>: breakpoint\nsplit: user friendly interface\nq: quit"
+	@echo "p <variable>: print value"
 	@echo "=============================================="
 	$(DB) $<
 
