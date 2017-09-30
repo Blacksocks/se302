@@ -13,3 +13,15 @@ define split
 end
 
 split
+
+# Shortcut to change layout
+define l
+  layout next
+end
+
+# Restart program
+define restart
+  mon halt
+  load
+  mon reset
+end

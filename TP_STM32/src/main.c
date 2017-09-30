@@ -2,18 +2,27 @@
 #include "hal.h"
 #include "led.h"
 
-static virtual_timer_t led_timer;
-
-void pwm_callback(__attribute__((unused)) PWMDriver *pwmp)
+static void pwm_callback(__attribute__((unused)) PWMDriver *pwmp)
 {
-    led_toggle();
+    led_on();
 }
 
+static void channel_callback(__attribute__((unused)) PWMDriver *pwmp)
+{
+    led_off();
+}
+
+/* Configure a pwm at 120Hz
+** It's a common value in order to be confortable for eyes
+** 12000 was choosen for frequency because this assertions must be verified:
+** clk / frequency - 1 < 0xFFFF, with clk = 84000000, i.e frequency > 1282Hz
+** Moreover, I choosed frequency which verify 120*10^x for clarity
+*/
 static PWMConfig pwmcfg = {
-    1024,                           // frequency
-    1024,                           // PWM period
+    12000,                          // frequency
+    100,                            // PWM period
     pwm_callback,                   // callback called each period
-   {{PWM_OUTPUT_ACTIVE_HIGH, NULL}, // first channel init
+   {{PWM_OUTPUT_DISABLED, channel_callback}, // first channel init, material output disabled but callback called each rising edge
     {PWM_OUTPUT_DISABLED, NULL},
     {PWM_OUTPUT_DISABLED, NULL},
     {PWM_OUTPUT_DISABLED, NULL}},
@@ -21,22 +30,11 @@ static PWMConfig pwmcfg = {
     0                               // TIM DIER register init data
 };
 
-
-void led_callback(__attribute__((unused)) void * p)
-{
-    // Restart timer
-    chSysLockFromISR();
-    chVTSetI(&led_timer, MS2ST(500), led_callback, NULL);
-    chSysUnlockFromISR();
-    // Toggle LED
-    //led_toggle();
-}
-
 int main(void)
 {
     /*
      * System initializations.
-     * - HAL initialization, this also initializes the configured device drivers
+     * - HAL initialization, this also init512ializes the configured device drivers
      *   and performs the board-specific initializations.
      * - Kernel initialization, the main() function becomes a thread and the RTOS is active.
      */
@@ -46,13 +44,13 @@ int main(void)
     // Configure LED
     led_init();
 
-    // Init timer
-    chVTObjectInit(&led_timer);
-    // Start timer
-    chVTSet(&led_timer, MS2ST(500), led_callback, NULL);
-
     pwmStart(&PWMD3, &pwmcfg);
-    pwmEnableChannel(&PWMD3, 0, 512);
+    // Set PWM duty cycle
+    pwmEnableChannel(&PWMD3, 0, 20); // 20% of PWM period
+    // Enable channel callbacks
+    pwmEnableChannelNotification(&PWMD3, 0);
+    // Enable PWM callbacks
+    pwmEnablePeriodicNotification(&PWMD3);
 
     while(1)
         chThdSleep(TIME_INFINITE);
