@@ -37,7 +37,8 @@ CSRC = $(STARTUPSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
        src/main.c \
-	   src/led.c
+	   src/led.c \
+	   src/usbcfg.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
