@@ -2,6 +2,7 @@
 #include "hal.h"
 #include "led.h"
 #include "usbcfg.h"
+#include "shell.h"
 
 int main(void)
 {
@@ -30,6 +31,9 @@ int main(void)
     chThdSleepMilliseconds(1500);
     usbStart(serusbcfg.usbp, &usbcfg);
     usbConnectBus(serusbcfg.usbp);
+
+    // Configure Shell
+    //shellInit();
 
     // Configure LED
     led_init();
