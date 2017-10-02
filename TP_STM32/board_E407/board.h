@@ -358,11 +358,11 @@
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN5) |          \
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN6) |          \
                                      PIN_OSPEED_VERYLOW(GPIOA_ETH_RMII_CRS_DV) |\
-                                     PIN_OSPEED_VERYLOW(GPIOA_USB_HS_BUSON) |  \
-                                     PIN_OSPEED_VERYLOW(GPIOA_OTG_FS_VBUS) |   \
-                                     PIN_OSPEED_VERYLOW(GPIOA_OTG_FS_ID) |     \
-                                     PIN_OSPEED_VERYLOW(GPIOA_OTG_FS_DM) |     \
-                                     PIN_OSPEED_VERYLOW(GPIOA_OTG_FS_DP) |     \
+                                     PIN_OSPEED_HIGH(GPIOA_USB_HS_BUSON) |  \
+                                     PIN_OSPEED_HIGH(GPIOA_OTG_FS_VBUS) |   \
+                                     PIN_OSPEED_HIGH(GPIOA_OTG_FS_ID) |     \
+                                     PIN_OSPEED_HIGH(GPIOA_OTG_FS_DM) |     \
+                                     PIN_OSPEED_HIGH(GPIOA_OTG_FS_DP) |     \
                                      PIN_OSPEED_VERYLOW(GPIOA_JTAG_TMS) |      \
                                      PIN_OSPEED_VERYLOW(GPIOA_JTAG_TCK) |      \
                                      PIN_OSPEED_VERYLOW(GPIOA_JTAG_TDI))
@@ -391,10 +391,10 @@
                                      PIN_ODR_LOW(GPIOA_PIN6) |             \
                                      PIN_ODR_LOW(GPIOA_ETH_RMII_CRS_DV) |  \
                                      PIN_ODR_LOW(GPIOA_USB_HS_BUSON) |      \
-                                     PIN_ODR_LOW(GPIOA_OTG_FS_VBUS) |      \
-                                     PIN_ODR_LOW(GPIOA_OTG_FS_ID) |        \
-                                     PIN_ODR_LOW(GPIOA_OTG_FS_DM) |        \
-                                     PIN_ODR_LOW(GPIOA_OTG_FS_DP) |        \
+                                     PIN_ODR_HIGH(GPIOA_OTG_FS_VBUS) |      \
+                                     PIN_ODR_HIGH(GPIOA_OTG_FS_ID) |        \
+                                     PIN_ODR_HIGH(GPIOA_OTG_FS_DM) |        \
+                                     PIN_ODR_HIGH(GPIOA_OTG_FS_DP) |        \
                                      PIN_ODR_LOW(GPIOA_JTAG_TMS) |         \
                                      PIN_ODR_LOW(GPIOA_JTAG_TCK) |         \
                                      PIN_ODR_LOW(GPIOA_JTAG_TDI))
@@ -467,8 +467,8 @@
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_VBUS) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_DM) |  \
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_VERYLOW(GPIOB_USB_FS_BUSON) |  \
-                                     PIN_OSPEED_VERYLOW(GPIOB_USB_FS_FAULT) |  \
+#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_HIGH(GPIOB_USB_FS_BUSON) |  \
+                                     PIN_OSPEED_HIGH(GPIOB_USB_FS_FAULT) |  \
                                      PIN_OSPEED_VERYLOW(GPIOB_BOOT1) |         \
                                      PIN_OSPEED_HIGH(GPIOB_JTAG_TDO) |      \
                                      PIN_OSPEED_VERYLOW(GPIOB_JTAG_TRST) |     \
@@ -500,7 +500,7 @@
                                      PIN_PUPDR_FLOATING(GPIOB_OTG_HS_DM) |  \
                                      PIN_PUPDR_FLOATING(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_ODR               (PIN_ODR_LOW(GPIOB_USB_FS_BUSON) |      \
-                                     PIN_ODR_LOW(GPIOB_USB_FS_FAULT) |     \
+                                     PIN_ODR_HIGH(GPIOB_USB_FS_FAULT) |     \
                                      PIN_ODR_LOW(GPIOB_BOOT1) |            \
                                      PIN_ODR_LOW(GPIOB_JTAG_TDO) |         \
                                      PIN_ODR_LOW(GPIOB_JTAG_TRST) |        \
@@ -946,7 +946,7 @@
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN8) |          \
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN9) |          \
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN10) |         \
-                                     PIN_OSPEED_VERYLOW(GPIOF_USB_HS_FAULT) |  \
+                                     PIN_OSPEED_HIGH(GPIOF_USB_HS_FAULT) |  \
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN12) |         \
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN13) |         \
                                      PIN_OSPEED_VERYLOW(GPIOF_PIN14) |         \
@@ -978,7 +978,7 @@
                                      PIN_ODR_LOW(GPIOF_PIN8) |             \
                                      PIN_ODR_LOW(GPIOF_PIN9) |             \
                                      PIN_ODR_LOW(GPIOF_PIN10) |            \
-                                     PIN_ODR_LOW(GPIOF_USB_HS_FAULT) |     \
+                                     PIN_ODR_HIGH(GPIOF_USB_HS_FAULT) |     \
                                      PIN_ODR_LOW(GPIOF_PIN12) |            \
                                      PIN_ODR_LOW(GPIOF_PIN13) |            \
                                      PIN_ODR_LOW(GPIOF_PIN14) |            \
