@@ -156,6 +156,6 @@ while(1){
     chThdSleepMilliseconds(10);
 }
 ```
-I noticed that at the beginning of the communication come strange characters are received by USB.
+I noticed that at the beginning of the communication some strange characters are received by USB.
 
 ### Shell

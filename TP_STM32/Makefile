@@ -145,6 +145,7 @@ seccont: $(ELF)
 # Open serial communication on USB port
 com:
 	@echo "Confugration: /dev/ttyACM0 9600 8N1"
-	sudo cutecom &
+	@echo "Press Ctrl+Z then Ctrl+X to quit"
+	sudo picocom /dev/ttyACM0 -b 9600
 
 .PHONY: startdb stopdb db

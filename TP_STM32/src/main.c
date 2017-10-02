@@ -3,6 +3,23 @@
 #include "led.h"
 #include "usbcfg.h"
 #include "shell.h"
+#include "chprintf.h"
+
+static void cmd_hello(BaseSequentialStream *sdu, int argc, char *argv[]) {
+    (void)argc;
+    (void)argv;
+    chprintf(sdu, "world\r\n");
+}
+
+static const ShellCommand commands[] = {
+    {"hello", cmd_hello},
+    {NULL, NULL}
+};
+
+static ShellConfig shell_cfg1 = {
+    (BaseSequentialStream *) &SDU1,
+    commands
+};
 
 int main(void)
 {
@@ -33,19 +50,25 @@ int main(void)
     usbConnectBus(serusbcfg.usbp);
 
     // Configure Shell
-    //shellInit();
+    shellInit();
 
     // Configure LED
     led_init();
     led_pwm(10);
     led_blink(1000);
 
-    unsigned char c = 'A';
     int input;
+
     while(1){
-        chnPutTimeout(&SDU1, c, MS2ST(500));
-        if((input = chnGetTimeout(&SDU1, MS2ST(2000))) != Q_TIMEOUT)
-            c = (unsigned char)input;
-        chThdSleepMilliseconds(10);
+        input = chnGetTimeout(&SDU1, MS2ST(2000));
+        if(SDU1.config->usbp->state == USB_ACTIVE)
+        {
+            // This inputs are need to find when USB initialization finish
+            // And pressing 'B' starts shell
+            if (input == 'B')
+                shellThread(&shell_cfg1);
+            chnPutTimeout(&SDU1, input, MS2ST(100));
+        }
+        chThdSleepMilliseconds(100);
     }
 }
