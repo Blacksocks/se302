@@ -142,4 +142,9 @@ seccont: $(ELF)
 # Objdump
 ##############################################################################
 
+# Open serial communication on USB port
+com:
+	@echo "Confugration: /dev/ttyACM0 9600 8N1"
+	sudo cutecom &
+
 .PHONY: startdb stopdb db

@@ -40,8 +40,12 @@ int main(void)
     led_pwm(10);
     led_blink(1000);
 
+    unsigned char c = 'A';
+    int input;
     while(1){
-        chnPutTimeout(&SDU1, 'Z', MS2ST(500));
-        chThdSleepMilliseconds(1000);
+        chnPutTimeout(&SDU1, c, MS2ST(500));
+        if((input = chnGetTimeout(&SDU1, MS2ST(2000))) != Q_TIMEOUT)
+            c = (unsigned char)input;
+        chThdSleepMilliseconds(10);
     }
 }

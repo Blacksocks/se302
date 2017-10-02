@@ -125,3 +125,37 @@ I found that this assertion must be verified:
 > (pwmp->clock / pwmp->config->frequency) - 1 <= 0xFFFF
 > pwmp->clock = 84000000
 > Therefore frequency must be over 1282Hz.
+
+My second problem was callbacks. They was never called.  
+A found that two functions must be called to activate callbacks:
+```c
+pwmEnableChannelNotification(&PWMD3, 0);
+pwmEnablePeriodicNotification(&PWMD3);
+```
+Moreover, these functions must be used in this order.
+
+## 6th step: Serial communication via USB
+
+### Initialization
+
+The first task is to describe USB connection. USB is a very complex protocol and configuration is difficult.  
+Therefore, I used ```usbcfg.h``` and ```usbcfg.c``` from an example to configure USB.  
+I also configured USB ports as in the example. I only changed configuration of ports connected to USB_TOG1.
+
+### Communication
+
+To test communication, I just made a program who send a character at most each 2s.  
+This character change if a new character is received.
+```c
+unsigned char c = 'A';
+int input;
+while(1){
+    chnPutTimeout(&SDU1, c, MS2ST(500));
+    if((input = chnGetTimeout(&SDU1, MS2ST(2000))) != Q_TIMEOUT)
+        c = (unsigned char)input;
+    chThdSleepMilliseconds(10);
+}
+```
+I noticed that at the beginning of the communication come strange characters are received by USB.
+
+### Shell
