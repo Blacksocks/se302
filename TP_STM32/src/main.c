@@ -46,7 +46,8 @@ int main(void)
         if(SDU1.config->usbp->state == USB_ACTIVE)
         {
             // This timeout is needed to find when USB init is finished
-            input = chnGetTimeout(&SDU1, MS2ST(4000));
+            input = chnGetTimeout(&SDU1, MS2ST(1500));
+            chnPutTimeout(&SDU1, input, MS2ST(100));
             if (input == Q_TIMEOUT)
                 // Run shell
                 shellThread(&shell_cfg1);
