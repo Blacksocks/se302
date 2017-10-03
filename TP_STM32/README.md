@@ -17,14 +17,14 @@ and created my project next to ChibiOS folder.
 ### Project architecture
 
 To don't begin from scratch, I used demo project:
-```
+```bash
 <ChibiOS>/demos/<proc_familly>/<board>/
 ```
 I copied this files in my project
 > chconf.h  
-> halconf.h  
-> mcuconf.h  
-> Makefile
+ halconf.h  
+ mcuconf.h  
+ Makefile
 
 I created a basic main.c program into a src/
 ```c
@@ -34,12 +34,12 @@ int main(void) {
 ```
 
 Then, I changed pin configuration by copying this folder into my project:
-```
+```bash
 <ChibiOS>/os/hal/boards/<board>/
 ```
 and modifying board.h and board.mk  
 board.mk:
-```
+```c
 BOARDSRC = board_E407/board.c
 BOARDINC = board_E407
 ```
@@ -47,7 +47,7 @@ BOARDINC = board_E407
 ### Compiling using ChibiOS
 
 To link my own files to compilation, I changed Makefile:
-```
+```c
 CHIBIOS = ../ChibiOS        # set chibios folder
 ...
 CSRC = ... \
@@ -63,11 +63,12 @@ Doing ```make``` created an executable file <project>.elf
 
 To run program on board, I used J-Link debugger.  
 I used this command to run JLinkGDBServer:
-```
+
+```bash
 pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 ```
 And these ones in another terminal:
-```
+```bash
 arm-none-eabi-gdb build/<project>.elf
 split     # use user friendly interface
 load      # load program in flash
@@ -122,8 +123,8 @@ I configured driver to call callbacks each rising and falling edge of PWM.
 I had a problem using PWM driver. I set frequency to 1000Hz but I had an error.  
 I found that this assertion must be verified:
 
-> (pwmp->clock / pwmp->config->frequency) - 1 <= 0xFFFF
-> pwmp->clock = 84000000
+> (pwmp->clock / pwmp->config->frequency) - 1 <= 0xFFFF  
+> pwmp->clock = 84000000  
 > Therefore frequency must be over 1282Hz.
 
 My second problem was callbacks. They was never called.  
@@ -169,4 +170,6 @@ I obviously choose the third idea but I had a lot of problem for making the shel
 I finally understood that after serial port connection, some data are send through USB for initialization.  
 During this time, shell cannot be run.  
 To prevent this delay, I deactivated ModemManager:
-> sudo stop modemmanager
+```bash
+sudo stop modemmanager
+```
