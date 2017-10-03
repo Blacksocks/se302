@@ -159,3 +159,14 @@ while(1){
 I noticed that at the beginning of the communication some strange characters are received by USB.
 
 ### Shell
+
+To implement the shell, I imagined to:
+* recode an entire shell using only write and read methods (```chnWrite()``` and ```chnRead()```)
+* use whole example in Chibi documentation
+* use Chibi's shell function (don't used in documentation)
+I obviously choose the third idea but I had a lot of problem for making the shell run.  
+I finally understood that after serial port connection, some data are send through USB for initialization.  
+During this time, shell cannot be run.  
+To prevent this delay, I deactivated ModemManager:
+> sudo stop modemmanager
+ 
