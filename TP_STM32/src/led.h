@@ -28,12 +28,16 @@ void led_toggle(void);
 
 /* Set led intensity in percent
 ** intensity: integer between 0 and 100
+** return 0 if function terminate successfully,
+**        1 else (parameter is wrong)
 */
-void led_pwm(unsigned int intensity);
+int led_pwm(unsigned int intensity);
 
 /* Blink LED
 ** period: blinking period in ms between 10 and 10000
+** return 0 if function terminate successfully,
+**        1 else (parameter is wrong)
 */
-void led_blink(unsigned int m_period);
+int led_blink(unsigned int m_period);
 
 #endif // _LED_H_

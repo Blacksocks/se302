@@ -3,7 +3,7 @@
 #include "led.h"
 
 // Blinking period
-static int period;
+static int period = 2000;
 
 /* State of the LED;
 ** 0: off
@@ -60,6 +60,10 @@ void led_init(void)
 {
     LED_SET_PIN();
     led_off();
+    // Init timer
+    chVTObjectInit(&led_timer);
+    // Start timer
+    chVTSet(&led_timer, MS2ST(period), led_blink_callback, NULL);
 }
 
 void led_on(void)
@@ -80,10 +84,10 @@ void led_toggle(void)
     state = 1 - state;
 }
 
-void led_pwm(unsigned int intensity)
+int led_pwm(unsigned int intensity)
 {
     if(intensity > 100)
-        return;
+        return 1;
     pwmStart(&PWMD3, &pwmcfg);
     // Set PWM duty cycle
     pwmEnableChannel(&PWMD3, 0, intensity);
@@ -91,15 +95,13 @@ void led_pwm(unsigned int intensity)
     pwmEnableChannelNotification(&PWMD3, 0);
     // Enable PWM callbacks
     pwmEnablePeriodicNotification(&PWMD3);
+    return 0;
 }
 
-void led_blink(unsigned int m_period)
+int led_blink(unsigned int m_period)
 {
     if(m_period < 10 || m_period > 10000)
-        return;
+        return 1;
     period = m_period / 2;
-    // Init timer
-    chVTObjectInit(&led_timer);
-    // Start timer
-    chVTSet(&led_timer, MS2ST(period), led_blink_callback, NULL);
+    return 0;
 }
