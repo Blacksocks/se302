@@ -26,15 +26,13 @@ int main(void)
     // Configure LED
     led_init();
 
-    int input;
-
     while(1)
     {
-        // This timeout is needed to find when USB init is finished
-        input = chnGetTimeout(&SDU1, MS2ST(3000));
-        if (input == Q_TIMEOUT)
-            // Run shell
-            shellThread(&shell_cfg1);
-        chThdSleepMilliseconds(100);
+        if(SDU1.config->usbp->state == USB_ACTIVE)
+        {
+            shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
+            chThdWait(shell);
+        }
+        chThdSleepMilliseconds(1000);
     }
 }

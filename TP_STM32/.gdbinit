@@ -1,9 +1,3 @@
-target ext :2331
-mon endian little
-mon halt
-load
-mon reset
-
 # User interface with asm, regs and cmd windows
 define split
   layout split
@@ -11,8 +5,6 @@ define split
   layout regs
   focus cmd
 end
-
-split
 
 # Shortcut to change layout
 define l
@@ -25,3 +17,8 @@ define restart
   load
   mon reset
 end
+
+target ext :2331
+mon endian little
+restart
+split

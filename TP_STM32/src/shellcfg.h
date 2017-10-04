@@ -65,3 +65,5 @@ ShellConfig shell_cfg1 = {
     (BaseSequentialStream *) &SDU1,
     commands
 };
+
+thread_t *shell = NULL;
