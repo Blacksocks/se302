@@ -2,8 +2,15 @@
 #include "hal.h"
 #include "led.h"
 
+/* Macros used to switch on/off, toggle and init LED
+*/
+#define LED_ON()      palClearPad(GPIOC, GPIOC_LED)
+#define LED_OFF()     palSetPad(GPIOC, GPIOC_LED)
+#define LED_TOGGLE()  palTogglePad(GPIOC, GPIOC_LED)
+#define LED_SET_PIN() palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL)
+
 // Blinking period
-static int period = 2000;
+static int period = 1000;
 
 /* State of the LED;
 ** 0: off

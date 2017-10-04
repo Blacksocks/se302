@@ -1,13 +1,6 @@
 #ifndef _LED_H_
 #define _LED_H_
 
-/* Macros used to switch on/off, toggle and init LED
-*/
-#define LED_ON()      palClearPad(GPIOC, GPIOC_LED)
-#define LED_OFF()     palSetPad(GPIOC, GPIOC_LED)
-#define LED_TOGGLE()  palTogglePad(GPIOC, GPIOC_LED)
-#define LED_SET_PIN() palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL)
-
 /* init LED
 ** set LED on GPIO C as output using pushpull mode
 ** pushpull means that output is either connect to VCC or to GND, no floating state
