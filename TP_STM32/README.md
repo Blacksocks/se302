@@ -201,6 +201,8 @@ while(1)
 ```
 and running it using GDB, I saw the expected message in the Telnet terminal.
 
+### Stream to Shell
+
 In order to use RTT as a stream (```BaseSequentialStream``` in ChibiOS), I created a variable which implements each basic stream functions based on SEGGER_RTT functions:
 * rtt_write
 * rtt_read
