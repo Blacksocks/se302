@@ -218,3 +218,9 @@ ShellConfig shell_cfg1 = {
     commands
 };
 ```
+
+Summary of the commands used to communicate with RTT (in different terminals):
+* make startdb
+* make jlink
+* make db
+* make telnet
