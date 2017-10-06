@@ -1,4 +1,5 @@
 #include "chprintf.h"
+#include "rtt.h"
 
 void cmd_hello(BaseSequentialStream *sdu, int argc, char *argv[])
 {
@@ -62,7 +63,11 @@ const ShellCommand commands[] = {
 };
 
 ShellConfig shell_cfg1 = {
-    (BaseSequentialStream *) &SDU1,
+    // Stream where data are send/received
+    // RTT_stream to use RTT
+    // SDU1       to use Serial over USB
+    (BaseSequentialStream *) &RTT_stream,
+    // Commands structure
     commands
 };
 

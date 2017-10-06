@@ -43,7 +43,8 @@ CSRC = $(STARTUPSRC) \
        src/main.c \
 	   src/led.c \
 	   src/usbcfg.c \
-	   src/SEGGER_RTT.c
+	   src/SEGGER_RTT.c \
+	   src/rtt.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)

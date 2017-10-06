@@ -199,4 +199,22 @@ while(1)
     chThdSleepMilliseconds(1000);
 }
 ```
-and running it using GDB, Isaw the expected message in the Telnet terminal.
+and running it using GDB, I saw the expected message in the Telnet terminal.
+
+In order to use RTT as a stream (```BaseSequentialStream``` in ChibiOS), I created a variable which implements each basic stream functions based on SEGGER_RTT functions:
+* rtt_write
+* rtt_read
+* rtt_put
+* rtt_get
+
+I now use RTT to communicate with the board using shell:
+```c
+ShellConfig shell_cfg1 = {
+    // Stream where data are send/received
+    // RTT_stream to use RTT
+    // SDU1       to use Serial over USB
+    (BaseSequentialStream *) &RTT_stream,
+    // Commands structure
+    commands
+};
+```

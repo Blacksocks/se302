@@ -5,7 +5,7 @@
 #include "usbcfg.h"
 #include "shell.h"
 #include "shellcfg.h"
-#include "SEGGER_RTT.h"
+#include "rtt.h"
 
 int main(void)
 {
@@ -27,9 +27,9 @@ int main(void)
     // Configure LED
     led_init();
 
-    while(1)
-    {
-        SEGGER_RTT_WriteString(0, "Hello World from SEGGER!\r\n");
+    while(1) {
+        shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
+        chThdWait(shell);
         chThdSleepMilliseconds(1000);
     }
 }
