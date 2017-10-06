@@ -42,7 +42,8 @@ CSRC = $(STARTUPSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
        src/main.c \
 	   src/led.c \
-	   src/usbcfg.c
+	   src/usbcfg.c \
+	   src/SEGGER_RTT.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -148,4 +149,12 @@ com:
 	@echo "Press Ctrl+A then Ctrl+X to quit"
 	sudo picocom /dev/ttyACM0 -b 9600
 
-.PHONY: startdb stopdb db
+# Open JLink connection
+jlink:
+	JLinkExe -if SWD -device STM32F405ZG -speed 4000
+
+# Connect to JLink with telnet
+telnet:
+	telnet localhost 19021
+
+.PHONY: startdb stopdb db com jlink telnet

@@ -166,10 +166,37 @@ To implement the shell, I imagined to:
 * use whole example in Chibi documentation
 * use Chibi's shell function (don't used in documentation)
 
-I obviously choose the third idea but I had a lot of problem for making the shell run.  
+I choose the third idea but I had a lot of problem for making the shell run.  
 I finally understood that after serial port connection, some data are send through USB for initialization.  
 During this time, shell cannot be run.  
 To prevent this delay, I deactivated ModemManager:
 ```bash
 sudo stop modemmanager
 ```
+
+This method have a huge problem: if we do not read COM port in the first ~6s, we cannot access to the shell!  
+To correct this issue, I used a thread started in a loop (as done in the example).  
+The program will try to start a shell until it success. Then, it wait the end of the shell to start another one.
+
+## RTT
+
+### First connection
+
+To use RTT, I first need to start JLink program. It starts a server which allows to use JLink functionalities.
+```bash
+JLinkExe -if SWD -device STM32F405ZG -speed 4000
+```
+
+Then, I use Telnet to connect to this server and use JLink functions. I found the (default) address into SEGGER JLink User Manual (at ```-RTTTelnetPort```).
+```bash
+telnet localhost 19021
+```
+After running my first program,
+```c
+while(1)
+{
+    SEGGER_RTT_WriteString(0, "Hello World from SEGGER!\r\n");
+    chThdSleepMilliseconds(1000);
+}
+```
+and running it using GDB, Isaw the expected message in the Telnet terminal.

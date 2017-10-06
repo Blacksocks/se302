@@ -5,6 +5,7 @@
 #include "usbcfg.h"
 #include "shell.h"
 #include "shellcfg.h"
+#include "SEGGER_RTT.h"
 
 int main(void)
 {
@@ -28,11 +29,7 @@ int main(void)
 
     while(1)
     {
-        if(SDU1.config->usbp->state == USB_ACTIVE)
-        {
-            shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
-            chThdWait(shell);
-        }
+        SEGGER_RTT_WriteString(0, "Hello World from SEGGER!\r\n");
         chThdSleepMilliseconds(1000);
     }
 }
