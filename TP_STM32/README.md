@@ -124,8 +124,8 @@ I had a problem using PWM driver. I set frequency to 1000Hz but I had an error.
 I found that this assertion must be verified:
 
 > (pwmp->clock / pwmp->config->frequency) - 1 <= 0xFFFF  
-> pwmp->clock = 84000000  
-> Therefore frequency must be over 1282Hz.
+ pwmp->clock = 84000000  
+ Therefore frequency must be over 1282Hz.
 
 My second problem was callbacks. They was never called.  
 A found that two functions must be called to activate callbacks:
@@ -226,3 +226,13 @@ Summary of the commands used to communicate with RTT (in different terminals):
 * make jlink
 * make db
 * make telnet
+
+## Input: Pushbutton
+
+To handle input pushbutton, I used events.
+I created a thread which links events to its listener and called linked handler.
+
+## TCP / IP
+
+To have IP address of our domain:
+> dig rose11.enst.fr a [+short]

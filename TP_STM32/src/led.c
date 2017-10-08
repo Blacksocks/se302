@@ -22,21 +22,24 @@ static virtual_timer_t led_timer;
 
 /* PWM callbacks functions
 */
-static void pwm_callback(__attribute__((unused)) PWMDriver *pwmp)
+static void pwm_callback(PWMDriver *pwmp)
 {
+    (void)pwmp;
     if(state)
         LED_ON();
 }
 
-static void channel_callback(__attribute__((unused)) PWMDriver *pwmp)
+static void channel_callback(PWMDriver *pwmp)
 {
+    (void)pwmp;
     LED_OFF();
 }
 
 /* LED blinking callback
 */
-static void led_blink_callback(__attribute__((unused)) void * p)
+static void led_blink_callback(void * p)
 {
+    (void)p;
     // Restart timer
     chSysLockFromISR();
     chVTSetI(&led_timer, MS2ST(period), led_blink_callback, NULL);
@@ -69,8 +72,6 @@ void led_init(void)
     led_off();
     // Init timer
     chVTObjectInit(&led_timer);
-    // Start timer
-    chVTSet(&led_timer, MS2ST(period), led_blink_callback, NULL);
 }
 
 void led_on(void)
@@ -110,5 +111,7 @@ int led_blink(unsigned int m_period)
     if(m_period < 10 || m_period > 10000)
         return 1;
     period = m_period / 2;
+    // Start timer
+    chVTSet(&led_timer, MS2ST(period), led_blink_callback, NULL);
     return 0;
 }

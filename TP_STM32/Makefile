@@ -44,7 +44,9 @@ CSRC = $(STARTUPSRC) \
 	   src/led.c \
 	   src/usbcfg.c \
 	   src/SEGGER_RTT.c \
-	   src/rtt.c
+	   src/rtt.c \
+	   src/event.c \
+	   src/button.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)

@@ -6,6 +6,8 @@
 #include "shell.h"
 #include "shellcfg.h"
 #include "rtt.h"
+#include "event.h"
+#include "button.h"
 
 int main(void)
 {
@@ -26,6 +28,12 @@ int main(void)
 
     // Configure LED
     led_init();
+
+    // Init Push Button
+    init_btn();
+
+    // Create event handler thread
+    chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "listeners", NORMALPRIO + 1, listenerThread, NULL);
 
     while(1) {
         shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
