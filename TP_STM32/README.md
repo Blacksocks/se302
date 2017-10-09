@@ -229,8 +229,12 @@ Summary of the commands used to communicate with RTT (in different terminals):
 
 ## Input: Pushbutton
 
-To handle input pushbutton, I used events.
-I created a thread which links events to its listener and called linked handler.
+To handle input pushbutton, I used external driver.  
+On rising and falling edge of the input signal, I call a callback which handle each case (rising and falling edge cases).  
+
+This method have a problem: kickback  
+To handle this issue, I used a timer to perform button handler after a brief delay.  
+My system has a delay of 5ms between button event and button handling function.
 
 ## TCP / IP
 
