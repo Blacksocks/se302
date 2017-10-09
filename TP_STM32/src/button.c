@@ -1,5 +1,6 @@
 #include "button.h"
 #include "hal.h"
+#include "led.h"
 #include "chprintf.h"
 #include "rtt.h"
 
@@ -13,21 +14,73 @@ static virtual_timer_t kickback_timer;
 // Used to handle button click
 static int click_ready = 1;
 static virtual_timer_t click_timer;
+// Led control
+static const int led_delay = 100;
+// 0: intensity increasing
+// 1: intensity decreasing
+static int led_state = 0;
+static virtual_timer_t led_timer;
+static int led_value = 0;
+
+/* ==================================================
+** Top-level handlers
+** Actions done when button is pressed, released or clicked
+** Basically control a LED intensity
+** ================================================== */
+
+static void led_callback(void * p)
+{
+    (void)p;
+    chSysLockFromISR();
+    chVTSetI(&led_timer, MS2ST(led_delay), led_callback, NULL);
+    chSysUnlockFromISR();
+    if(led_state) {
+        if(--led_value < 0) {
+            led_value = 1;
+            led_state = 0;
+        }
+    }
+    else {
+        if(++led_value > 100) {
+            led_value = 99;
+            led_state = 1;
+        }
+    }
+    led_pwmI(led_value);
+}
 
 static void btn_up_handler(void)
 {
     chprintf((BaseSequentialStream *)&RTT_stream, "[INFO] btn up\r\n");
+    chSysLockFromISR();
+    chVTResetI(&led_timer);                                                        \
+    chSysUnlockFromISR();
 }
 
 static void btn_down_handler(void)
 {
     chprintf((BaseSequentialStream *)&RTT_stream, "[INFO] btn down\r\n");
+    chSysLockFromISR();
+    chVTSetI(&led_timer, MS2ST(led_delay), led_callback, NULL);
+    chSysUnlockFromISR();
 }
 
 static void btn_click_handler(void)
 {
     chprintf((BaseSequentialStream *)&RTT_stream, "[INFO] btn click\r\n");
+    if(led_state)
+        led_on();
+    else
+        led_off();
 }
+
+/* ==================================================
+** Intermediate callbacks
+** Used to handle three cases
+** * Button Pressed
+** * Button Released
+** * Button Clicked
+** ================================================== */
 
 /* Triggered when the button is pressed or released without kickback
 */
@@ -111,6 +164,10 @@ static const EXTConfig extcfg = {
     {EXT_CH_MODE_DISABLED, NULL}
   }
 };
+
+/* ==================================================
+** Init button event handler using external driver
+** ================================================== */
 
 void init_btn(void)
 {

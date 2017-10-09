@@ -25,6 +25,7 @@ void led_toggle(void);
 **        1 else (parameter is wrong)
 */
 int led_pwm(unsigned int intensity);
+int led_pwmI(unsigned int intensity);
 
 /* Blink LED
 ** period: blinking period in ms between 10 and 10000

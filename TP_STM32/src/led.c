@@ -72,6 +72,14 @@ void led_init(void)
     led_off();
     // Init timer
     chVTObjectInit(&led_timer);
+    // Init pwm
+    pwmStart(&PWMD3, &pwmcfg);
+    // Set PWM duty cycle
+    pwmEnableChannel(&PWMD3, 0, 100);
+    // Enable channel callbacks
+    pwmEnableChannelNotification(&PWMD3, 0);
+    // Enable PWM callbacks
+    pwmEnablePeriodicNotification(&PWMD3);
 }
 
 void led_on(void)
@@ -96,13 +104,19 @@ int led_pwm(unsigned int intensity)
 {
     if(intensity > 100)
         return 1;
-    pwmStart(&PWMD3, &pwmcfg);
     // Set PWM duty cycle
     pwmEnableChannel(&PWMD3, 0, intensity);
-    // Enable channel callbacks
-    pwmEnableChannelNotification(&PWMD3, 0);
-    // Enable PWM callbacks
-    pwmEnablePeriodicNotification(&PWMD3);
+    return 0;
+}
+
+int led_pwmI(unsigned int intensity)
+{
+    if(intensity > 100)
+        return 1;
+    // Set PWM duty cycle
+    chSysLockFromISR();
+    pwmEnableChannelI(&PWMD3, 0, intensity);
+    chSysUnlockFromISR();
     return 0;
 }
 
