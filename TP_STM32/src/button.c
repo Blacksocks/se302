@@ -15,7 +15,7 @@ static virtual_timer_t kickback_timer;
 static int click_ready = 1;
 static virtual_timer_t click_timer;
 // Led control
-static const int led_delay = 100;
+static const int led_delay = 20;
 // 0: intensity increasing
 // 1: intensity decreasing
 static int led_state = 0;
@@ -35,8 +35,8 @@ static void led_callback(void * p)
     chVTSetI(&led_timer, MS2ST(led_delay), led_callback, NULL);
     chSysUnlockFromISR();
     if(led_state) {
-        if(--led_value < 0) {
-            led_value = 1;
+        if(--led_value < 1) {
+            led_value = 2;
             led_state = 0;
         }
     }
@@ -69,9 +69,10 @@ static void btn_click_handler(void)
 {
     chprintf((BaseSequentialStream *)&RTT_stream, "[INFO] btn click\r\n");
     if(led_state)
-        led_on();
+        led_value = 100;
     else
-        led_off();
+        led_value = 1;
+    led_pwmI(led_value);
 }
 
 /* ==================================================
@@ -173,4 +174,6 @@ void init_btn(void)
 {
     // Start external driver to link pushbutton events to callbacks
     extStart(&EXTD1, &extcfg);
+    led_on();
+    led_pwm(1);
 }

@@ -236,6 +236,15 @@ This method have a problem: kickback
 To handle this issue, I used a timer to perform button handler after a brief delay.  
 My system has a delay of 5ms between button event and button handling function.
 
+Then, I added a layout to handle three type of button events:
+* Button Pressed
+* Button Released
+* Button Clicked
+
+Finally, I handled each of these events to make a LED intensity controller.  
+Clicking the button set intensity at 1% or 100% (almost alternate)  
+Pressing the button makes the intensity slowly increasing until maximum, then decreasing, ...
+
 ## TCP / IP
 
 To have IP address of our domain:

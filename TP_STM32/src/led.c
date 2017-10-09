@@ -113,8 +113,8 @@ int led_pwmI(unsigned int intensity)
 {
     if(intensity > 100)
         return 1;
-    // Set PWM duty cycle
     chSysLockFromISR();
+    // Set PWM duty cycle
     pwmEnableChannelI(&PWMD3, 0, intensity);
     chSysUnlockFromISR();
     return 0;
