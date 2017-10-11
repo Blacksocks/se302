@@ -7,6 +7,7 @@
 #include "shellcfg.h"
 #include "rtt.h"
 #include "button.h"
+#include "event.h"
 
 int main(void)
 {
@@ -30,6 +31,9 @@ int main(void)
 
     // Init Push Button
     init_btn();
+
+    // Create event handler thread
+    chThdCreateStatic(waListenerThread, sizeof(waListenerThread), NORMALPRIO + 1, listenerThread, NULL);
 
     while(1) {
         shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);

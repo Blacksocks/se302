@@ -245,6 +245,11 @@ Finally, I handled each of these events to make a LED intensity controller.
 Clicking the button set intensity at 1% or 100% (almost alternate)  
 Pressing the button makes the intensity slowly increasing until maximum, then decreasing, ...
 
+This approach is not very clean because interrupts are long.  
+In this example, handlers are pretty short so it's not a problem but it's not a great habit.  
+Therefore, I used ChibiOS events.  
+Pressing, clicking or releasing the button throw an event. A thread then call related handler.
+
 ## TCP / IP
 
 To have IP address of our domain:
