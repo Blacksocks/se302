@@ -302,13 +302,13 @@
  * GPIOA setup:
  *
  * PA0  - BUTTON_WKUP               (input floating).
- * PA1  - ETH_RMII_REF_CLK          (input floating).
- * PA2  - ETH_RMII_MDIO             (input floating).
+ * PA1  - ETH_RMII_REF_CLK          (alternate 11).
+ * PA2  - ETH_RMII_MDIO             (alternate 11).
  * PA3  - ETH_RMII_MDINT            (input floating).
  * PA4  - PIN4                      (input floating).
  * PA5  - PIN5                      (input floating).
  * PA6  - PIN6                      (input floating).
- * PA7  - ETH_RMII_CRS_DV           (input floating).
+ * PA7  - ETH_RMII_CRS_DV           (alternate 11).
  * PA8  - USB_HS_BUSON              (input floating).
  * PA9  - OTG_FS_VBUS               (input floating).
  * PA10 - OTG_FS_ID                 (input floating).
@@ -536,11 +536,11 @@
  * GPIOC setup:
  *
  * PC0  - PIN0                      (input floating).
- * PC1  - ETH_RMII_MDC              (input floating).
+ * PC1  - ETH_RMII_MDC              (alternate 11).
  * PC2  - SPI2_MISO                 (input floating).
  * PC3  - SPI2_MOSI                 (input floating).
- * PC4  - ETH_RMII_RXD0             (input floating).
- * PC5  - ETH_RMII_RXD1             (input floating).
+ * PC4  - ETH_RMII_RXD0             (alternate 11).
+ * PC5  - ETH_RMII_RXD1             (alternate 11).
  * PC6  - USART6_TX                 (input floating).
  * PC7  - USART6_RX                 (input floating).
  * PC8  - SD_D0                     (input floating).
@@ -1009,15 +1009,15 @@
  * PG3  - PIN3                      (input floating).
  * PG4  - PIN4                      (input floating).
  * PG5  - PIN5                      (input floating).
- * PG6  - PIN6                      (input floating).
+ * PG6  - PIN6                      (input pullup).
  * PG7  - PIN7                      (input floating).
  * PG8  - PIN8                      (input floating).
  * PG9  - PIN9                      (input floating).
  * PG10 - SPI2_CS                   (input floating).
- * PG11 - ETH_RMII_TXEN             (input floating).
+ * PG11 - ETH_RMII_TXEN             (alternate 11).
  * PG12 - PIN12                     (input floating).
- * PG13 - ETH_RMII_TXD0             (input floating).
- * PG14 - ETH_RMII_TXD1             (input floating).
+ * PG13 - ETH_RMII_TXD0             (alternate 11).
+ * PG14 - ETH_RMII_TXD1             (alternate 11).
  * PG15 - PIN15                     (input floating).
  */
 #define VAL_GPIOG_MODER             (PIN_MODE_INPUT(GPIOG_PIN0) |           \
