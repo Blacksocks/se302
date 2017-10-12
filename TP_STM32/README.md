@@ -213,9 +213,9 @@ I now use RTT to communicate with the board using shell:
 ```c
 ShellConfig shell_cfg1 = {
     // Stream where data are send/received
-    // RTT_stream to use RTT
-    // SDU1       to use Serial over USB
-    (BaseSequentialStream *) &RTT_stream,
+    // RTT1  to use RTT
+    // SDU1  to use Serial over USB
+    RTT1,
     // Commands structure
     commands
 };

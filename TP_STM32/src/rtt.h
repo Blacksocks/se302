@@ -3,6 +3,8 @@
 
 #include "hal.h"
 
+#define RTT1    (BaseSequentialStream *)&RTT_stream
+
 extern BaseSequentialStream RTT_stream;
 
 msg_t rtt_put(void *instance, uint8_t b);
