@@ -8,6 +8,8 @@
 #include "rtt.h"
 #include "button.h"
 #include "event.h"
+#include "lwip.h"
+#include "lwipthread.h"
 
 int main(void)
 {
@@ -34,6 +36,9 @@ int main(void)
 
     // Create event handler thread
     chThdCreateStatic(waListenerThread, sizeof(waListenerThread), NORMALPRIO + 1, listenerThread, NULL);
+
+    // Create lwIP thread
+    lwipInit(&lwip_opts);
 
     while(1) {
         shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
