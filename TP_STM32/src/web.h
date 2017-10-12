@@ -6,7 +6,7 @@
 /* Thread working area
 ** Allocate a static thread working area aligned as both position and size
 */
-THD_WORKING_AREA(waWebThread, 128);
+THD_WORKING_AREA(waWebThread, 1024);
 
 /* Web thread
 */
