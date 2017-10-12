@@ -1,7 +1,4 @@
-#ifndef _LWIP_H_
-#define _LWIP_H_
-
-#include "lwipthread.h"
+#include "web.h"
 
 // Default is LITTLE_ENDIAN
 #define ADDR4_2_U32(a, b, c, d) (((u32_t)((d) & 0xff) << 24) | \
@@ -18,4 +15,10 @@ const lwipthread_opts_t lwip_opts = {
     ADDR4_2_U32(137,194,64,254)
 };
 
-#endif // _LWIP_H_
+THD_FUNCTION(webThread, arg)
+{
+    (void)arg;
+    lwipInit(&lwip_opts);
+
+    //netconn_listen();
+}

@@ -46,7 +46,8 @@ CSRC = $(STARTUPSRC) \
 	   src/SEGGER_RTT.c \
 	   src/rtt.c \
 	   src/button.c \
-	   src/event.c
+	   src/event.c \
+	   src/web.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
