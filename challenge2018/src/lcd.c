@@ -15,39 +15,39 @@
 
 static const SPIConfig spicfg = {
     NULL, // Disable callbacks
-    GPIOC,
-    LCD_MOSI,
-    0,
+    GPIOB,
+    LCD_CS,
+    SPI_CR1_BR_2 | SPI_CR1_BR_1,
     0
 };
 
 static void set_lcd_pins(void)
 {
-    palSetPadMode(GPIOB, LCD_RESET, PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST);
-    palSetPadMode(GPIOB, LCD_DC, PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST);
+    palSetPadMode(GPIOB, LCD_RESET, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOB, LCD_DC, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOC, LCD_MOSI, PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
     palSetPadMode(GPIOB, LCD_SCK, PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
-    palSetPadMode(GPIOG, LCD_CS, PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST);
+    palSetPadMode(GPIOG, LCD_CS, PAL_MODE_OUTPUT_PUSHPULL);
 }
 
 static void send_command(int command)
 {
     LCD_DC_LOW();
-    spiSend(&SPID1, 1, (const void *)&command);
+    spiSend(&SPID2, 1, (const void *)&command);
 }
 
 static void send_data(int command)
 {
     LCD_DC_HIGH();
-    spiSend(&SPID1, 1, (const void *)&command);
+    spiSend(&SPID2, 1, (const void *)&command);
 }
 
 void init_lcd(void)
 {
     set_lcd_pins();
-    spiAcquireBus(&SPID1);
-    spiStart(&SPID1, &spicfg);
-    spiSelect(&SPID1);
+    spiAcquireBus(&SPID2);
+    spiStart(&SPID2, &spicfg);
+    spiSelect(&SPID2);
 
     // Init procedure
     LCD_RESET_LOW();
@@ -68,10 +68,7 @@ void init_lcd(void)
 
     // Send data
     send_data(0xAA);
-    send_data(0xAA);
-    send_data(0xAA);
-    send_data(0xAA);
 
-    spiUnselect(&SPID1);
-    spiReleaseBus(&SPID1);
+    spiUnselect(&SPID2);
+    spiReleaseBus(&SPID2);
 }
