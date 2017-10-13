@@ -4,6 +4,7 @@
 #include "chprintf.h"
 #include "rtt.h"
 #include "event.h"
+#include "usbcfg.h"
 
 #define GET_PUSHBTN()     palReadPad(GPIOA, GPIOA_BUTTON_WKUP)
 #define KICKBACK_DELAY    5
@@ -56,21 +57,21 @@ static void led_callback(void * p)
 void btn_up_handler(eventid_t id)
 {
     (void)id;
-    chprintf(RTT1, "[INFO] btn up\r\n");
+    chprintf(SDU, "[INFO] btn up\r\n");
     chVTReset(&led_timer);
 }
 
 void btn_down_handler(eventid_t id)
 {
     (void)id;
-    chprintf(RTT1, "[INFO] btn down\r\n");
+    chprintf(SDU, "[INFO] btn down\r\n");
     chVTSet(&led_timer, MS2ST(led_delay), led_callback, NULL);
 }
 
 void btn_click_handler(eventid_t id)
 {
     (void)id;
-    chprintf(RTT1, "[INFO] btn click\r\n");
+    chprintf(SDU, "[INFO] btn click\r\n");
     if(led_value == 1 || led_value == 100)
         led_state = 1 - led_state;
     if(led_state)

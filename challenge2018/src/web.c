@@ -3,6 +3,7 @@
 #include "rtt.h"
 #include "lwip/api.h"
 #include "lwip/dns.h"
+#include "usbcfg.h"
 
 #define WEB_PORT                80
 // Default is LITTLE_ENDIAN
@@ -47,7 +48,7 @@ THD_FUNCTION(webThread, arg)
     // Get server IP using DNS
     err = netconn_gethostbyname(WEB_ADDR, &ip_server);
     if(err != ERR_OK) {
-        chprintf(RTT1, "[ERROR] [WEB] DNS error: %d\r\n", err);
+        chprintf(SDU, "[ERROR] [WEB] DNS error: %d\r\n", err);
         return;
     }
 
@@ -57,31 +58,31 @@ THD_FUNCTION(webThread, arg)
     // Bind to port 80 (HTTP) with default IP address
     err = netconn_bind(conn, NULL, WEB_PORT);
     if(err != ERR_OK) {
-        chprintf(RTT1, "[ERROR] [WEB] Binding error: %d\r\n", err);
+        chprintf(SDU, "[ERROR] [WEB] Binding error: %d\r\n", err);
         return;
     }
 
     // Connect to telecom server
     err = netconn_connect(conn, &ip_server, WEB_PORT);
     if(err != ERR_OK) {
-        chprintf(RTT1, "[ERROR] [WEB] Connection error: %d\r\n", err);
+        chprintf(SDU, "[ERROR] [WEB] Connection error: %d\r\n", err);
         return;
     }
-    chprintf(RTT1, "[INFO] [WEB] Connection to "WEB_ADDR": Success\r\n");
+    chprintf(SDU, "[INFO] [WEB] Connection to "WEB_ADDR": Success\r\n");
 
     // Get data from server
     // subtract 1 from the size, since we dont send the \0 in the string
     // NETCONN_NOCOPY: our data is const static, so no need to copy it
     err = netconn_write(conn, http_request, sizeof(http_request)-1, NETCONN_NOCOPY);
     if(err != ERR_OK) {
-        chprintf(RTT1, "[ERROR] [WEB] Request error: %d\r\n", err);
+        chprintf(SDU, "[ERROR] [WEB] Request error: %d\r\n", err);
         return;
     }
 
     // Wait for data reception
     err = netconn_recv(conn, &inbuf);
     if(err != ERR_OK) {
-        chprintf(RTT1, "[ERROR] [WEB] Receive data error: %d\r\n", err);
+        chprintf(SDU, "[ERROR] [WEB] Receive data error: %d\r\n", err);
         return;
     }
 
@@ -89,7 +90,7 @@ THD_FUNCTION(webThread, arg)
     char *buf;
     u16_t buflen;
     netbuf_data(inbuf, (void **)&buf, &buflen);
-    chprintf(RTT1, "[INFO] [WEB] Data: %s\r\n", buf);
+    chprintf(SDU, "[INFO] [WEB] Data: %s\r\n", buf);
 
     netconn_close(conn);
     netbuf_delete(inbuf);

@@ -3,7 +3,7 @@
 
 #include "hal.h"
 
-#define RTT1    (BaseSequentialStream *)&RTT_stream
+#define RTT    (BaseSequentialStream *)&RTT_stream
 
 extern BaseSequentialStream RTT_stream;
 

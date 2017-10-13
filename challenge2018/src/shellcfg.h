@@ -64,9 +64,9 @@ const ShellCommand commands[] = {
 
 ShellConfig shell_cfg1 = {
     // Stream where data are send/received
-    // RTT1  to use RTT
-    // SDU1  to use Serial over USB
-    RTT1,
+    // RTT  to use RTT
+    // SDU  to use Serial over USB
+    SDU,
     // Commands structure
     commands
 };

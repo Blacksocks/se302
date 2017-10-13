@@ -17,6 +17,8 @@
 #ifndef USBCFG_H
 #define USBCFG_H
 
+#define SDU (BaseSequentialStream *) &SDU1
+
 extern const USBConfig usbcfg;
 extern SerialUSBConfig serusbcfg;
 extern SerialUSBDriver SDU1;
