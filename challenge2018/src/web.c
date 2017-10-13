@@ -29,7 +29,7 @@ static const lwipthread_opts_t lwip_opts = {
 static char http_request[512] = "";
 static char response[TCP_MSS];
 static const char * http_rqst_head = "GET ";
-static const char * http_rqst_foot = " HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n";
+static const char * http_rqst_foot = " HTTP/1.0\r\nHost: "WEB_ADDR"\r\n\r\n";
 
 static void request(void)
 {
@@ -154,34 +154,7 @@ THD_FUNCTION(webThread, arg)
     conn = netconn_new(NETCONN_TCP);
     LWIP_ERROR("http_server: invalid conn", (conn != NULL), chThdExit(MSG_RESET););
 
-    /* Questions:
-    ** HSE, PLL, SPI, LSI : quel est l'intrus ?
-    ** LSI
-    ** SPI
-    ** HSE
-    ** PLL
-    ** La frequence d'horloge SYSCLK maximum d'un STM32F407 est
-    ** 250MHz
-    ** 168MHz
-    ** 48MHz
-    ** 180MHz
-    ** Sur STM32, doit-on acquitter explicitement les interruptions ?
-    ** oui
-    ** non
-    ** non, sauf EXTI
-    ** oui, sauf EXTI
-    ** Le CSMA/CD est utilise en
-    ** CAN
-    ** SPI
-    ** Ethernet
-    ** Flexray
-    ** Que signifie 'to brick'?
-    ** Rendre plus rapide
-    ** Rendre meilleur
-    ** Rendre inutilisable
-    ** Rendre plus propre
-    */
-    strcpy(http_request, "GET /challenge/step3done?check=29b7a5dd&token=277c362d&initials=VG&answers=24333 HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
+    strcpy(http_request, "GET /challenge/step4?token=6c60e86c&initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
     request();
 
 }
