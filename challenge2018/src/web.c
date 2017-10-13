@@ -68,7 +68,8 @@ static void request(void)
     u16_t buflen;
     netbuf_data(inbuf, (void **)&buf, &buflen);
     strcpy(response, buf);
-    chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, buf);
+    response[buflen] = '\0';
+    chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, response);
 
     // Close and delete the connection
     netconn_close(conn);

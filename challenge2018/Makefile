@@ -88,7 +88,7 @@ BIN  = $(CP) -O binary
 TOPT = -mthumb -DTHUMB
 
 # Define C warning options here
-CWARN = -Werror -Wall -Wextra -Wundef -Wstrict-prototypes
+CWARN = -Werror -Wall -Wextra -Wundef -Wstrict-prototypes -Wno-unused-function
 
 #
 # Compiler settings
