@@ -154,7 +154,34 @@ THD_FUNCTION(webThread, arg)
     conn = netconn_new(NETCONN_TCP);
     LWIP_ERROR("http_server: invalid conn", (conn != NULL), chThdExit(MSG_RESET););
 
-    strcpy(http_request, "GET /challenge/step3?token=277c362d&initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
+    /* Questions:
+    ** HSE, PLL, SPI, LSI : quel est l'intrus ?
+    ** LSI
+    ** SPI
+    ** HSE
+    ** PLL
+    ** La frequence d'horloge SYSCLK maximum d'un STM32F407 est
+    ** 250MHz
+    ** 168MHz
+    ** 48MHz
+    ** 180MHz
+    ** Sur STM32, doit-on acquitter explicitement les interruptions ?
+    ** oui
+    ** non
+    ** non, sauf EXTI
+    ** oui, sauf EXTI
+    ** Le CSMA/CD est utilise en
+    ** CAN
+    ** SPI
+    ** Ethernet
+    ** Flexray
+    ** Que signifie 'to brick'?
+    ** Rendre plus rapide
+    ** Rendre meilleur
+    ** Rendre inutilisable
+    ** Rendre plus propre
+    */
+    strcpy(http_request, "GET /challenge/step3done?check=29b7a5dd&token=277c362d&initials=VG&answers=24333 HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
     request();
 
 }
