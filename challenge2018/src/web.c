@@ -12,7 +12,7 @@
                                  ((u32_t)((b) & 0xff) << 8)  | \
                                   (u32_t)((a) & 0xff))
 #define DNS_IP                  ADDR4_2_U32(137,194,2,34)
-#define WEB_ADDR                "www.telecom-paristech.fr"
+#define WEB_ADDR                "antinea.enst.fr"
 
 static uint8_t mac_address[6] = {0x80, 0xfa, 0x5b, 0x3d, 0xe8, 0x5b};
 static struct netconn *conn;
@@ -26,7 +26,7 @@ static const lwipthread_opts_t lwip_opts = {
 };
 
 static struct netbuf *inbuf;
-static const char http_request[] = "GET / HTTP/1.0\r\nHost: www.telecom-paristech.fr\r\n\r\n";
+static const char http_request[] = "GET /challenge/step1?initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n";
 
 static void init(void)
 {
@@ -90,7 +90,7 @@ THD_FUNCTION(webThread, arg)
     char *buf;
     u16_t buflen;
     netbuf_data(inbuf, (void **)&buf, &buflen);
-    chprintf(SDU, "[INFO] [WEB] Data: %s\r\n", buf);
+    chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, buf);
 
     netconn_close(conn);
     netbuf_delete(inbuf);
