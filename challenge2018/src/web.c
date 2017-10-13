@@ -154,8 +154,7 @@ THD_FUNCTION(webThread, arg)
     conn = netconn_new(NETCONN_TCP);
     LWIP_ERROR("http_server: invalid conn", (conn != NULL), chThdExit(MSG_RESET););
 
-    strcpy(http_request, "GET /challenge/step2?token=44beea6d&amp;initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
+    strcpy(http_request, "GET /challenge/step3?token=277c362d&initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
     request();
-    get_http_content(response);
-    request_from_url(response);
+
 }
