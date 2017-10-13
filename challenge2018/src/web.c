@@ -1,3 +1,4 @@
+#include <string.h>
 #include "web.h"
 #include "chprintf.h"
 #include "rtt.h"
@@ -26,7 +27,87 @@ static const lwipthread_opts_t lwip_opts = {
 };
 
 static struct netbuf *inbuf;
-static const char http_request[] = "GET /challenge/step1?initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n";
+static char http_request[512];
+static char response[TCP_MSS];
+static const char * http_rqst_head = "GET ";
+static const char * http_rqst_foot = " HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n";
+
+static void request(void)
+{
+    err_t err;
+
+    // Get data from server
+    // subtract 1 from the size, since we dont send the \0 in the string
+    // NETCONN_NOCOPY: our data is const static, so no need to copy it
+    err = netconn_write(conn, (const char *)http_request, strlen(http_request), NETCONN_NOCOPY);
+    if(err != ERR_OK) {
+        chprintf(SDU, "[ERROR] [WEB] Request error: %d\r\n", err);
+        return;
+    }
+
+    // Wait for data reception
+    err = netconn_recv(conn, &inbuf);
+    if(err != ERR_OK) {
+        chprintf(SDU, "[ERROR] [WEB] Receive data error: %d\r\n", err);
+        return;
+    }
+
+    // Read data
+    char *buf;
+    u16_t buflen;
+    netbuf_data(inbuf, (void **)&buf, &buflen);
+    strcpy(response, buf);
+    chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, buf);
+
+    netbuf_delete(inbuf);
+}
+
+void request_from_url(char * url)
+{
+    int rqst_idx = strlen(http_rqst_head);
+    strcpy(http_request, http_rqst_head);
+    int start_cpy = 0;
+    for(unsigned int i = 3; i < strlen(url); i++) {
+        if(url[i] == '/' && url[i-1] == 'r' && url[i-2] == 'f' && url[i-3] == '.')
+            start_cpy = 1;
+        if(start_cpy == 1) {
+            if(url[i] > 0x7F || url[i] == '\n' || url[i] == '\r' || url[i] == '\0')
+                break;
+            http_request[rqst_idx++] = url[i];
+        }
+    }
+    if(start_cpy == 0)
+    {
+        chprintf(SDU, "[ERROR] [WEB] URL parsing\r\n");
+        return;
+    }
+    for(unsigned int i = 0; i < strlen(http_rqst_foot); i++)
+        http_request[rqst_idx++] = http_rqst_foot[i];
+    http_request[rqst_idx] = '\0';
+    chprintf(SDU, "[INFO] [WEB] New request: \"%s\"\r\n", http_request);
+    request();
+}
+
+/* Return the content of a http response
+*/
+static void get_http_content(char * input_str)
+{
+    static char cpy[TCP_MSS];
+    int i = 0;
+    strcpy(cpy, (const char *)input_str);
+    while(i++ < TCP_MSS - 4) {
+        if(cpy[i] == '\r' && cpy[i+1] == '\n' && cpy[i+2] == '\r' && cpy[i+3] == '\n')
+            break;
+    }
+    if(i == TCP_MSS - 3) {
+        chprintf(SDU, "[ERROR] [WEB] get_http_content: not found\r\n");
+        return;
+    }
+    i += 3;
+    int input_str_idx = 0;
+    while(i++ < TCP_MSS - 1)
+        input_str[input_str_idx++] = cpy[i];
+}
 
 static void init(void)
 {
@@ -68,30 +149,12 @@ THD_FUNCTION(webThread, arg)
         chprintf(SDU, "[ERROR] [WEB] Connection error: %d\r\n", err);
         return;
     }
-    chprintf(SDU, "[INFO] [WEB] Connection to "WEB_ADDR": Success\r\n");
 
-    // Get data from server
-    // subtract 1 from the size, since we dont send the \0 in the string
-    // NETCONN_NOCOPY: our data is const static, so no need to copy it
-    err = netconn_write(conn, http_request, sizeof(http_request)-1, NETCONN_NOCOPY);
-    if(err != ERR_OK) {
-        chprintf(SDU, "[ERROR] [WEB] Request error: %d\r\n", err);
-        return;
-    }
-
-    // Wait for data reception
-    err = netconn_recv(conn, &inbuf);
-    if(err != ERR_OK) {
-        chprintf(SDU, "[ERROR] [WEB] Receive data error: %d\r\n", err);
-        return;
-    }
-
-    // Read data
-    char *buf;
-    u16_t buflen;
-    netbuf_data(inbuf, (void **)&buf, &buflen);
-    chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, buf);
+    strcpy(http_request, "GET /challenge/step2?token=44beea6d&amp;initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
+    request();
+    request();
+    get_http_content(response);
+    request_from_url(response);
 
     netconn_close(conn);
-    netbuf_delete(inbuf);
 }
