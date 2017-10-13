@@ -12,7 +12,6 @@
 #define LCD_RESET_HIGH()    palSetPad  (GPIOB, LCD_RESET)
 #define LCD_DC_LOW()        palClearPad(GPIOG, LCD_CS)
 #define LCD_DC_HIGH()       palSetPad  (GPIOG, LCD_CS)
-#define LCD_CS_LOW()        palClearPad(GPIOG, LCD_CS)
 
 static const SPIConfig spicfg = {
     NULL, // Disable callbacks
@@ -46,9 +45,9 @@ static void send_data(int command)
 void init_lcd(void)
 {
     set_lcd_pins();
-    LCD_CS_LOW();
     spiAcquireBus(&SPID1);
     spiStart(&SPID1, &spicfg);
+    spiSelect(&SPID1);
 
     // Init procedure
     LCD_RESET_LOW();
@@ -69,6 +68,10 @@ void init_lcd(void)
 
     // Send data
     send_data(0xAA);
+    send_data(0xAA);
+    send_data(0xAA);
+    send_data(0xAA);
 
+    spiUnselect(&SPID1);
     spiReleaseBus(&SPID1);
 }
