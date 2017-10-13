@@ -101,7 +101,7 @@ void request_from_url(char * url)
     for(unsigned int i = 0; i < strlen(http_rqst_foot); i++)
         http_request[rqst_idx++] = http_rqst_foot[i];
     http_request[rqst_idx] = '\0';
-    chprintf(SDU, "[INFO] [WEB] New request: \"%s\"\r\n", http_request);
+    chprintf(SDU, "[INFO] [WEB] New request: %s", http_request);
     request();
 }
 
@@ -112,10 +112,9 @@ static void get_http_content(char * input_str)
     static char cpy[TCP_MSS];
     int i = 0;
     strcpy(cpy, (const char *)input_str);
-    while(i++ < TCP_MSS - 4) {
+    while(i++ < TCP_MSS - 4)
         if(cpy[i] == '\r' && cpy[i+1] == '\n' && cpy[i+2] == '\r' && cpy[i+3] == '\n')
             break;
-    }
     if(i == TCP_MSS - 3) {
         chprintf(SDU, "[ERROR] [WEB] get_http_content: not found\r\n");
         return;
