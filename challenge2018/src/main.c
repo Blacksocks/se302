@@ -10,6 +10,7 @@
 #include "event.h"
 #include "web.h"
 #include "lwipthread.h"
+#include "lcd.h"
 
 int main(void)
 {
@@ -39,6 +40,9 @@ int main(void)
 
     // Create Web thread
     chThdCreateStatic(waWebThread, sizeof(waWebThread), NORMALPRIO + 1, webThread, NULL);
+
+    // Init extra LCD screen
+    init_lcd();
 
     while(1) {
         shell = chThdCreateFromHeap(NULL, THD_WORKING_AREA_SIZE(2048), "shell", NORMALPRIO + 1, shellThread, (void *)&shell_cfg1);
