@@ -26,8 +26,7 @@ static const lwipthread_opts_t lwip_opts = {
     ADDR4_2_U32(137,194,64,254)
 };
 
-static struct netbuf *inbuf;
-static char http_request[512];
+static char http_request[512] = "";
 static char response[TCP_MSS];
 static const char * http_rqst_head = "GET ";
 static const char * http_rqst_foot = " HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n";
@@ -35,6 +34,18 @@ static const char * http_rqst_foot = " HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n
 static void request(void)
 {
     err_t err;
+    struct netbuf *inbuf;
+
+    // Create TCP connection
+    conn = netconn_new(NETCONN_TCP);
+    LWIP_ERROR("http_server: invalid conn", (conn != NULL), chThdExit(MSG_RESET););
+
+    // Connect to telecom server
+    err = netconn_connect(conn, &ip_server, WEB_PORT);
+    if(err != ERR_OK) {
+        chprintf(SDU, "[ERROR] [WEB] Connection error: %d\r\n", err);
+        return;
+    }
 
     // Get data from server
     // subtract 1 from the size, since we dont send the \0 in the string
@@ -59,6 +70,12 @@ static void request(void)
     strcpy(response, buf);
     chprintf(SDU, "[INFO] [WEB] Data (%d): %s\r\n", buflen, buf);
 
+    // Close and delete the connection
+    netconn_close(conn);
+    netconn_delete(conn);
+
+    // Delete the buffer (netconn_recv gives us ownership,
+    //so we have to make sure to deallocate the buffer)
     netbuf_delete(inbuf);
 }
 
@@ -136,25 +153,9 @@ THD_FUNCTION(webThread, arg)
     // Create TCP connection
     conn = netconn_new(NETCONN_TCP);
     LWIP_ERROR("http_server: invalid conn", (conn != NULL), chThdExit(MSG_RESET););
-    // Bind to port 80 (HTTP) with default IP address
-    err = netconn_bind(conn, NULL, WEB_PORT);
-    if(err != ERR_OK) {
-        chprintf(SDU, "[ERROR] [WEB] Binding error: %d\r\n", err);
-        return;
-    }
-
-    // Connect to telecom server
-    err = netconn_connect(conn, &ip_server, WEB_PORT);
-    if(err != ERR_OK) {
-        chprintf(SDU, "[ERROR] [WEB] Connection error: %d\r\n", err);
-        return;
-    }
 
     strcpy(http_request, "GET /challenge/step2?token=44beea6d&amp;initials=VG HTTP/1.0\r\nHost: antinea.enst.fr\r\n\r\n");
     request();
-    request();
     get_http_content(response);
     request_from_url(response);
-
-    netconn_close(conn);
 }
