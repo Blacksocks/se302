@@ -10,8 +10,8 @@
 
 #define LCD_RESET_LOW()     palClearPad(GPIOB, LCD_RESET)
 #define LCD_RESET_HIGH()    palSetPad  (GPIOB, LCD_RESET)
-#define LCD_DC_LOW()        palClearPad(GPIOG, LCD_CS)
-#define LCD_DC_HIGH()       palSetPad  (GPIOG, LCD_CS)
+#define LCD_DC_LOW()        palClearPad(GPIOB, LCD_DC)
+#define LCD_DC_HIGH()       palSetPad  (GPIOB, LCD_DC)
 
 static const SPIConfig spicfg = {
     NULL, // Disable callbacks
@@ -30,13 +30,13 @@ static void set_lcd_pins(void)
     palSetPadMode(GPIOG, LCD_CS, PAL_MODE_OUTPUT_PUSHPULL);
 }
 
-static void send_command(int command)
+static void send_command(char command)
 {
     LCD_DC_LOW();
     spiSend(&SPID2, 1, (const void *)&command);
 }
 
-static void send_data(int command)
+static void send_data(char command)
 {
     LCD_DC_HIGH();
     spiSend(&SPID2, 1, (const void *)&command);
@@ -67,7 +67,11 @@ void init_lcd(void)
     send_command(0x40);
 
     // Send data
-    send_data(0xAA);
+    send_data(0xFF);
+    send_data(0xFF);
+    send_data(0xFF);
+    send_data(0xFF);
+    send_data(0xFF);
 
     spiUnselect(&SPID2);
     spiReleaseBus(&SPID2);
