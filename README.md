@@ -11,7 +11,7 @@ Here is the [wording](https://sen.enst.fr/se302a-se302b/tp-stm32/partie-logiciel
 ### Challenge2018/
 
 This project is the following of the previous one. It's the examination test. Each student had 6h to complete all the project steps.  
-Using our board (STM32E407), we used TCP/IP to get the wording (no more available).  
+Using our board (STM32E407), we used TCP/IP to get the [wording](https://rose.telecom-paristech.fr/2018/).  
 We had to:
 * Send a TCP/IP request
 * Send two requests in a short delay, one depending on the other
