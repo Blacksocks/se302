@@ -1,0 +1,21 @@
+Interro Sigma
+
+BOOT
+
+Pour effectuer le boot, un programme situé dans une ROM est lancé.
+Ce programme doit être petit car les failles sont plus facilement présentes
+dans un programme long. Ce fichier fait quelques Ko.
+Il est executé à partir d'un processeur sécurisé qui n'est utilisé que pour le boot
+et pour les fonctions de chiffrement.
+Dans ce processeur, il n'est pas possible de debug (pas deJTAG) pour des raisons de sécurités.
+Si ce processeur n'arrive pas à démarrer les autres processeurs (ARM, entre autre) et
+de communiquer avec les RAM, il n'est quasiment impossible d'effectuer du debug.
+Pour sécuriser les données de flux vidéo, des clées asymétriques sont utilisés.
+
+CLEE
+
+Une première clée privée se trouve au siège de Sigma, aux USA, très bien protégé.
+Cette clée sert à en générer d'autres, qui sont mise dans des OTP (one time programmable memory)
+qui servent à authentifier le code qui est mis en ROM lors de la fonte.
+Ensuite, d'autre clée (ou les mêmes, ne ne suis pas sur) sont utilisés pour chiffrer et
+déchiffrer les flux vidéos qui sontenvoyés vers la sortie video.
