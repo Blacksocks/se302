@@ -1,1 +1,7 @@
 [2017-10-26 20.40.12] Successfully created [AutoSave] backup [2017-10-26 20.40.11 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-27 16.05.20] Migrating iCDB upgrade backups from directory [TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbback] to Project Backup format.
+[2017-11-27 16.05.20] Migrating iCDB upgrade backup file [2017-11-10 10.38.54-1120].
+[2017-11-27 16.05.20] Successfully created [Constraints Definition Upgrade] backup [2017-11-10 10.38.54 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-27 16.05.20] Migrated iCDB content backup file [cdbback\2017-11-10 10.38.54-1120.zip] removed.
+[2017-11-27 16.05.20] Successfully migrated iCDB upgrade backup file [2017-11-10 10.38.54-1120] to Project Backup format [2017-11-10 10.38.54 - consDefUpgr.zip]
+[2017-11-27 16.05.21] Successfully created [AutoSave] backup [2017-11-27 16.05.21 - auto.zip] requested by [WINDOWS01:admin].

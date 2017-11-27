@@ -1,0 +1,6 @@
+Mentor Graphics Corporation
+Cross Probe Log
+Date: Monday 11/27/17  Time: 16:02:57
+
+XPDAEMON - RELEASE NAME=01.981129.00
+Unable to read C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\PCB.pcb file: Exiting

@@ -2,5 +2,10 @@
 ------------------------------------------------------------------------
             Part/Reference             | Pin | Augmented Net Name
 ------------------------------------------------------------------------
+ Part 80-0021                          |
+       J8                              | PAD0| GND
+       J8                              | PAD1| GND
  Part 70-0081                          |
-       J1                              |    7| <unconnected pin>
+       J4                              |    7| <unconnected pin>
+ Part 40-0287                          |
+       U3                              |    4| <unconnected pin>
