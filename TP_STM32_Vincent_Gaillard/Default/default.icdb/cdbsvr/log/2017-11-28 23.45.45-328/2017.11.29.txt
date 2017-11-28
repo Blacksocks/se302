@@ -1,0 +1,50 @@
+[2017.11.29 00:21:03] [0035m.17s.475ms] [0] IT: Session [4123] for host [windows01] user [admin] with process ID [972] created
+[2017.11.29 00:21:03] [0035m.17s.475ms] [1] SC[4123]: Registered sub-client [ICDBC] with ID [1] for session ID [4123] host [windows01] user [admin] process ID [972]
+[2017.11.29 00:21:03] [0035m.17s.491ms] [1] SC[4123]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4123] host [windows01] user [admin] process ID [972]
+[2017.11.29 00:21:03] [0035m.17s.522ms] [1] CMT: There are [2] clients now: 4122, 4123
+[2017.11.29 00:21:05] [0035m.19s.459ms] [1] SC[4123]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4123] host [windows01] user [admin] process ID [972]
+[2017.11.29 00:21:05] [0035m.19s.475ms] [1] SC[4123]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4123] host [windows01] user [admin] process ID [972]
+[2017.11.29 00:21:05] [0035m.19s.584ms] [1] CMT: Removed client [4123]
+[2017.11.29 00:21:05] [0035m.19s.584ms] [1] CMT: There are [1] clients now: 4122
+[2017.11.29 00:21:05] [0035m.20s.225ms] [0] IT: Session [4124] for host [windows01] user [admin] with process ID [544] created
+[2017.11.29 00:21:05] [0035m.20s.225ms] [1] SC[4124]: Registered sub-client [Packager_8420171] with ID [1] for session ID [4124] host [windows01] user [admin] process ID [544]
+[2017.11.29 00:21:05] [0035m.20s.241ms] [1] CMT: There are [2] clients now: 4122, 4124
+[2017.11.29 00:21:06] [0035m.20s.663ms] [1] SC[4124]: UnRegistered sub-client [Packager_8420171] with ID [1] for session ID [4124] host [windows01] user [admin] process ID [544]
+[2017.11.29 00:21:06] [0035m.20s.756ms] [1] CMT: Removed client [4124]
+[2017.11.29 00:21:06] [0035m.20s.756ms] [1] CMT: There are [1] clients now: 4122
+[2017.11.29 00:22:35] [0036m.49s.506ms] [1] SC[4122]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4122] host [windows01] user [admin] process ID [944]
+[2017.11.29 00:22:35] [0036m.49s.631ms] [1] CMT: Removed client [4122]
+[2017.11.29 00:22:35] [0036m.49s.631ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.11.29 00:22:35] [0036m.49s.663ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.11.29 00:22:37] [0036m.51s.522ms] [0] CMT: Starting server auto-close
+[2017.11.29 00:22:37] [0036m.51s.631ms] [0] S: Closing server
+[2017.11.29 00:22:37] [0036m.51s.647ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.11.29 00:22:37] [0036m.51s.788ms] [0] iCDB Server PI: Closing plugins
+[2017.11.29 00:22:37] [0036m.51s.788ms] [0] iCDB Server PI: Plugins closed
+[2017.11.29 00:22:37] [0036m.51s.788ms] [0] iCDB Server PI: Unloading database
+[2017.11.29 00:22:37] [0036m.51s.788ms] [0] iCDB Server PI: Saving storage
+[2017.11.29 00:22:37] [0036m.51s.788ms] [0] iCDB Server PI: Closing database
+[2017.11.29 00:22:37] [0036m.51s.788ms] [1] iCDB Server PI: Stats: Database defragmentation: max[4] avg[1] holes[18%] data[94%]
+[2017.11.29 00:22:37] [0036m.51s.788ms] [1] iCDB Server PI: Stats: Database file size [267552 (261.3 kB)]
+[2017.11.29 00:22:37] [0036m.51s.803ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.11.29 00:22:37] [0036m.51s.819ms] [0] iCDB Server PI: Database closed
+[2017.11.29 00:22:37] [0036m.51s.819ms] [0] iCDB Server PI: Defragmenting database
+[2017.11.29 00:22:37] [0036m.51s.834ms] [0] iCDB Server PI: Creating database [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb] backup to file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbback\2017-11-29 00.22.37-328-d.zip]
+[2017.11.29 00:22:37] [0036m.51s.944ms] [0] iCDB Server PI: Database backup: DONE
+[2017.11.29 00:22:37] [0036m.51s.944ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 00:22:37] [0036m.51s.944ms] [0] Database GUARD OK: [267552]
+[2017.11.29 00:22:37] [0036m.51s.944ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] SFI version check [1009] [1009]
+[2017.11.29 00:22:37] [0036m.51s.944ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] Database SFI header has been read in [7ms 560us]
+[2017.11.29 00:22:37] [0036m.51s.975ms] [1] iCDB Server PI: Stats: Database file sizes: before[267552 (261.3 kB)], after[213808 (208.8 kB)], gain[53744 (52.5 kB)]
+[2017.11.29 00:22:37] [0036m.51s.975ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\icdb.dat] closed with size [213808 (208.8 kB)]
+[2017.11.29 00:22:37] [0036m.51s.975ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.11.29 00:22:37] [0036m.51s.975ms] [1] BackupTransaction: Removing database backup [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbback\2017-11-29 00.22.37-328-d.zip]
+[2017.11.29 00:22:37] [0036m.52s.288ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1764069] ticks
+[2017.11.29 00:22:37] [0036m.52s.288ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [176406] microseconds
+[2017.11.29 00:22:37] [0036m.52s.288ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [402]
+[2017.11.29 00:22:37] [0036m.52s.288ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [2278] commands per second
+[2017.11.29 00:22:37] [0036m.52s.334ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.11.29 00:22:37] [0036m.52s.397ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.11.29 00:22:38] [0036m.52s.616ms] [0] MWT: Destroy the shutdown block reason.
+[2017.11.29 00:22:38] [0036m.52s.616ms] [0] MWT: STOP
+[2017.11.29 00:22:38] [0036m.52s.616ms] [0] S: STOP

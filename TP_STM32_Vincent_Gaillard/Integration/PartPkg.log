@@ -2,7 +2,7 @@
                                     Packager
                                     --------
 
-                       07:11 PM Monday, November 27, 2017
+                      12:33 AM Wednesday, November 29, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\TP_STM32_Vincent_Gaillard.prj
 
 
@@ -78,49 +78,265 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaill
 
 
 
-    ERROR: Block Schematic1, Page 2, Symbol XCMP815:
-      Inconsistent part data.
-      Reference Designator C10 is on more than one symbol at
-      Path Schematic1.  This one has a Part Number 10-0069, a Part Name CAPCERAM0603,
-      and a Part Label CAP C0603 10pF NPO 10V while the other symbol
+    WARNING: Block Schematic1, Page 2, Symbol XCMP873:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
 
-    INFO: Block Schematic1, Page 2, Symbol XCMP793:
-      Inconsisent part data (cont.).
-      has a Part Number of 10-0057, a Part Name of CAPCERAM0603, and a Part Label CAP C0603 100nF X7R 16V.
-      Packaging is required to put symbols that have the same Reference Designator
-      at the same path in the same package.  This cannot be accomplished unless
-      the symbols have identical Part Numbers, or if both Part Numbers are missing,
-      then identical Part Names or if they are missing, identical Part Labels.
-      Please remove or change the Reference Designator or adjust the
-      Part Number, Part Name, and or Part Label of either symbol.
+    WARNING: Block Schematic1, Page 2, Symbol XCMP874:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
 
-    ERROR:  Inconsistent part data.  Reference Designator C10 is on more than one symbol.
-    Packaging is required to put symbols that have the same Reference
-    Designator at different paths in the same package unless at least
-    one of these symbols has a frozen property of Block or BlockFix.
-    This cannot be accomplished unless the symbols have identical Part
-    Numbers, or if Part Numbers are missing, then the same Part Names,
-    or if they are missing, the same Part Labels.
-    There are 1 symbols at Path Schematic1 that have a
-    Part Number 10-0069, a Part Name CAPCERAM0603, and a Part Label CAP C0603 10pF NPO 10V.
-    There are also 1 symbols at Path Schematic1 that have a
-    Part Number 10-0057, a Part Name CAPCERAM0603, and a Part Label CAP C0603 100nF X7R 16V.
-    The symbols at Path Schematic1 are:
+    WARNING: Block Schematic1, Page 2, Symbol XCMP875:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
 
-    INFO: Block Schematic1, Page 2, Symbol XCMP815:
-      Inconsistent part data (cont.)
-    The symbols at Path Schematic1 are:
+    WARNING: Block Schematic1, Page 2, Symbol XCMP876:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
 
-    INFO: Block Schematic1, Page 2, Symbol XCMP793:
-      Inconsistent part data (cont.)
-    Please add a Block or BlockFix frozen property to at least one symbol
-    or change the Reference Designators or adjust the Part Names
-    and Numbers at one of the paths.
+     Common Data Base has been read
 
-     Errors encountered while reading the Common Data Base.
+     Target PDB Name: Integration\LocalPartsDB.pdb
+
+     Number of Part Numbers: 37
+          Part Numb: 00-0055 -> Vend Part: 00-0055 
+          Part Numb: 00-0074 -> Vend Part: 00-0074 
+          Part Numb: 00-0081 -> Vend Part: 00-0081 
+          Part Numb: 00-0098 -> Vend Part: 00-0098 
+          Part Numb: 00-0122 -> Vend Part: 00-0122 
+          Part Numb: 00-1029 -> Vend Part: 00-1029 
+          Part Numb: 01-0228 -> Vend Part: 01-0228 
+          Part Numb: 01-0324 -> Vend Part: 01-0324 
+          Part Numb: 10-0018 -> Vend Part: 10-0018 
+          Part Numb: 10-0037 -> Vend Part: 10-0037 
+          Part Numb: 10-0057 -> Vend Part: 10-0057 
+          Part Numb: 10-0060 -> Vend Part: 10-0060 
+          Part Numb: 10-0069 -> Vend Part: 10-0069 
+          Part Numb: 10-0075 -> Vend Part: 10-0075 
+          Part Numb: 10-0112 -> Vend Part: 10-0112 
+          Part Numb: 20-0001 -> Vend Part: 20-0001 
+          Part Numb: 20-0004 -> Vend Part: 20-0004 
+          Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 20-0067 -> Vend Part: 20-0067 
+          Part Numb: 30-0003 -> Vend Part: 30-0003 
+          Part Numb: 30-0006 -> Vend Part: 30-0006 
+          Part Numb: 40-0229 -> Vend Part: 40-0229 
+          Part Numb: 40-0272 -> Vend Part: 40-0272 
+          Part Numb: 40-0287 -> Vend Part: 40-0287 
+          Part Numb: 70-0003 -> Vend Part: 70-0003 
+          Part Numb: 70-0014 -> Vend Part: 70-0014 
+          Part Numb: 70-0023 -> Vend Part: 70-0023 
+          Part Numb: 70-0058 -> Vend Part: 70-0058 
+          Part Numb: 70-0065 -> Vend Part: 70-0065 
+          Part Numb: 70-0081 -> Vend Part: 70-0081 
+          Part Numb: 70-0086 -> Vend Part: 70-0086 
+          Part Numb: 70-0087 -> Vend Part: 70-0087 
+          Part Numb: 80-0010 -> Vend Part: 80-0010 
+          Part Numb: 80-0021 -> Vend Part: 80-0021 
+          Part Numb: 80-0035 -> Vend Part: 80-0035 
+          Part Numb: 80-0056 -> Vend Part: 80-0056 
+          Part Numb: 81-0006 -> Vend Part: 81-0006 
+
+     Number of Part Names: 0
+
+     Number of Part Labels: 0
 
 
-     Testing of Packaging is being terminated with 2 errors and 0 warnings.
-      Design has NOT been packaged.
+     Checking for value differences between non-null symbol properties and PartsDB properties,
+      but only for those properties checked off in the Property Definition Editor
 
-     There have been 2 errors.
+    WARNING: Block Schematic1, Page 2, Symbol XCMP762:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 40-0272
+      Symbol Property: Cout HT = 9,88
+     PartsDB Property: Cout HT = 9.88
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 1, Symbol XCMP718:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 80-0056
+      Symbol Property: Cout HT = 16,5
+     PartsDB Property: Cout HT = 16.5
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP765:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 70-0023
+      Symbol Property: Cout HT = 2,59
+     PartsDB Property: Cout HT = 2.59
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP859:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 10-0075
+      Symbol Property: Cout HT = 1,12
+     PartsDB Property: Cout HT = 1.12
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP830:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 20-0067
+      Symbol Property: Cout HT = 2,49
+     PartsDB Property: Cout HT = 2.49
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP771:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 70-0081
+      Symbol Property: Cout HT = 1,96
+     PartsDB Property: Cout HT = 1.96
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP863:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 30-0006
+      Symbol Property: Cout HT = 5,28
+     PartsDB Property: Cout HT = 5.28
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP781:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 30-0006
+      Symbol Property: Cout HT = 5,28
+     PartsDB Property: Cout HT = 5.28
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP784:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 40-0229
+      Symbol Property: Cout HT = 1,05
+     PartsDB Property: Cout HT = 1.05
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP831:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 70-0058
+      Symbol Property: Cout HT = 1,71
+     PartsDB Property: Cout HT = 1.71
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP838:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 80-0010
+      Symbol Property: Cout HT = 3,76
+     PartsDB Property: Cout HT = 3.76
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP797:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 80-0021
+      Symbol Property: Cout HT = 1,13
+     PartsDB Property: Cout HT = 1.13
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP799:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 20-0038
+      Symbol Property: Cout HT = 1,75
+     PartsDB Property: Cout HT = 1.75
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP804:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 80-0035
+      Symbol Property: Cout HT = 1,08
+     PartsDB Property: Cout HT = 1.08
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 1, Symbol XCMP825:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 10-0018
+      Symbol Property: Cout HT = 1,319
+     PartsDB Property: Cout HT = 1.319
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+    WARNING: Block Schematic1, Page 1, Symbol XCMP824:
+      Symbol / PartsDB property mismatch:
+      Resolved PartNumber = 10-0018
+      Symbol Property: Cout HT = 1,319
+     PartsDB Property: Cout HT = 1.319
+     The symbol property value matches the PartsDB value with the Notation
+      Setting being ignored as requested for this property.
+
+     Checking the validity of the packaging of prepackaged schematic
+      symbols.  Only the first error in symbols having the same
+      Reference Designator will be reported.
+
+     The packaging of all prepackaged schematic symbols is consistent
+      with the Parts DataBase data for the cross mapping of
+      symbol pin names to Part Number pin numbers.
+      Symbols that were not prepackaged will now be packaged correctly.
+      
+     No errors in Existing Schematic Packaging.
+
+     The Common DataBase has been read and will be packaged.
+     Clustering 54 Symbols:
+              54  ***
+              50  **************************************************
+     Clustering is Complete
+
+     Packager Assignments successfully completed
+
+
+
+     72 nets were found containing 277 pins
+     54 components were found
+
+     Parsed netlist - Augmenting..
+
+     Augmented - Adding phantom pins....
+
+     Numbering Nets....
+
+     Checking Pins....
+
+     Testing of Packaging has been completed with 20 warnings.
+      Erroneous results may occur if not fixed.
+
+     Updating the Common DataBase
+
+     A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
+     There have been 4 reference designator changes.
+     The BAM file will list all of the from-to changes.
+
+The Common DataBase has been successfully updated.
+
+     Packager finished successfully.
+     !THE iCDB IS UP-TO-DATE!
+     
+     An unused pin and gate report has been written to Integration\UnusedPins.txt
+     An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
+     An augmented pin report has been written to Integration\AugmentedPins.txt.
+
+     There have been 20 warnings.
