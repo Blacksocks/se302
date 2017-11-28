@@ -83,3 +83,30 @@
 [2017.11.27 19:22:44] [0000m.00s.250ms] [0] MWT: WindowProc: WM_NCCREATE
 [2017.11.27 19:22:44] [0000m.00s.250ms] [1] SC[4094]: Registered sub-client [DCDV] with ID [1] for session ID [4094] host [windows01] user [admin] process ID [4072]
 [2017.11.27 19:23:15] [0000m.31s.134ms] [0] DFAMT: File server access time: 149 us
+[2017.11.27 19:36:24] [0013m.40s.800ms] [1] SC[4094]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4094] host [windows01] user [admin] process ID [4072]
+[2017.11.27 19:36:24] [0013m.40s.878ms] [1] CMT: Removed client [4094]
+[2017.11.27 19:36:24] [0013m.40s.878ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.11.27 19:36:25] [0013m.41s.175ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.11.27 19:36:26] [0013m.41s.972ms] [0] CMT: Starting server auto-close
+[2017.11.27 19:36:26] [0013m.42s.050ms] [0] S: Closing server
+[2017.11.27 19:36:26] [0013m.42s.066ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.11.27 19:36:26] [0013m.42s.128ms] [0] iCDB Server PI: Closing plugins
+[2017.11.27 19:36:26] [0013m.42s.128ms] [0] iCDB Server PI: Plugins closed
+[2017.11.27 19:36:26] [0013m.42s.128ms] [0] iCDB Server PI: Unloading database
+[2017.11.27 19:36:26] [0013m.42s.128ms] [0] iCDB Server PI: Saving storage
+[2017.11.27 19:36:26] [0013m.42s.128ms] [0] iCDB Server PI: Closing database
+[2017.11.27 19:36:26] [0013m.42s.128ms] [1] Hole: zero line at 237484 of size 8 bytes.
+[2017.11.27 19:36:26] [0013m.42s.128ms] [1] iCDB Server PI: Stats: Database defragmentation: max[3] avg[1] holes[8%] data[94%]
+[2017.11.27 19:36:26] [0013m.42s.128ms] [1] iCDB Server PI: Stats: Database file size [237528 (232.0 kB)]
+[2017.11.27 19:36:26] [0013m.42s.128ms] [1] Hole: zero line at 237484 of size 8 bytes.
+[2017.11.27 19:36:26] [0013m.42s.160ms] [0] iCDB Server PI: Database closed
+[2017.11.27 19:36:26] [0013m.42s.160ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [9326] ticks
+[2017.11.27 19:36:26] [0013m.42s.160ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [932] microseconds
+[2017.11.27 19:36:26] [0013m.42s.160ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [5]
+[2017.11.27 19:36:26] [0013m.42s.160ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [5361] commands per second
+[2017.11.27 19:36:26] [0013m.42s.160ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\icdb.dat] closed with size [237528 (232.0 kB)]
+[2017.11.27 19:36:26] [0013m.42s.222ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.11.27 19:36:26] [0013m.42s.238ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.11.27 19:36:26] [0013m.42s.378ms] [0] MWT: Destroy the shutdown block reason.
+[2017.11.27 19:36:26] [0013m.42s.378ms] [0] MWT: STOP
+[2017.11.27 19:36:26] [0013m.42s.378ms] [0] S: STOP
