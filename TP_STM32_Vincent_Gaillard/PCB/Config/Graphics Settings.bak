@@ -2,7 +2,7 @@
 ! change it at your own peril
 
 !
-! Created 11/30/17 17:48:10
+! Created 11/30/17 18:04:42
 !
 
 .Global_Constants 76 2
@@ -1692,7 +1692,7 @@
 	"[VirtualGlobal].iDC.Fabrication Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Favorites.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Global View & Interactive Selection.CollapsedSectionState" "1"
-	"[VirtualGlobal].iDC.Graphics Options.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Graphics Options.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Grids.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Hazards.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Layer Display.CollapsedSectionState" "1"
@@ -1703,16 +1703,16 @@
 	"[VirtualGlobal].iDC.Online.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Panel Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Pins.CollapsedSectionState" "0"
-	"[VirtualGlobal].iDC.Place Objects.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Place Objects.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Planes.CollapsedSectionState" "1"
-	"[VirtualGlobal].iDC.Planning.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Planning.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.RF Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Route Areas.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Sheet Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Substrate Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.User Draft Layers.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Valor-NPI.CollapsedSectionState" "1"
-	"[VirtualGlobal].iDC.Vias.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Vias.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Wirebond Objects.CollapsedSectionState" "1"
     )
     ..Global_String_Options ( 
@@ -1726,7 +1726,7 @@
 	"[VirtualGlobal].iDC.3D.Objects.CollapsedSectionOrder" "3"
 	"[VirtualGlobal].iDC.3D.Options.CollapsedSectionOrder" "2"
 	"[VirtualGlobal].iDC.3D.PCBs.CollapsedSectionOrder" "8"
-	"[VirtualGlobal].iDC.ActiveTabId" "4"
+	"[VirtualGlobal].iDC.ActiveTabId" "3"
 	"[VirtualGlobal].iDC.AplyTo" "3"
 	"[VirtualGlobal].iDC.AssemblyItems" "3"
 	"[VirtualGlobal].iDC.Batch.CollapsedSectionOrder" "4"
@@ -1818,8 +1818,8 @@
 
 .view "PCB"
     ..extrema
-	(-64386938,15638242)		! (xmin, ymin)
-	(174992734,121091842)		! (xmax, ymax)
+	(-14620782,31191583)		! (xmin, ymin)
+	(123782934,92162383)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd

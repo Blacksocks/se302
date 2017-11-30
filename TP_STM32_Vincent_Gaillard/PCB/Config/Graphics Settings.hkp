@@ -2,7 +2,7 @@
 ! change it at your own peril
 
 !
-! Created 11/30/17 18:04:42
+! Created 11/30/17 19:24:52
 !
 
 .Global_Constants 76 2
@@ -16,10 +16,10 @@
 	(-1, -1)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
 	(360, 256) (1366,768)	! ..rcNormalPosition
-    ..Active_Place_Layer_Top             True
-    ..Active_Place_Layer_Bottom          False
+    ..Active_Place_Layer_Top             False
+    ..Active_Place_Layer_Bottom          True
     ..Active_Place_Layer_Internal        False
-    ..Active_Route_Layer 1
+    ..Active_Route_Layer 0
     ..Trace_Layer_Color ( 
 	0x00ff6633 0x009933ff	! [1-2] RGB( 51,102,255)  RGB(255, 51,153)
 	0x0066ff99 0x000000ff	! [3-4] RGB(153,255,102)  RGB(255,  0,  0)
@@ -515,11 +515,11 @@
     ..Netline_Trace_Ends_On              False
     ..Classline_Color 0x00ff00cc	! RGB(204,  0,255)
     ..Netline_Of_Classline_On            True
-    ..Show_Plane_Data                    False
+    ..Show_Plane_Data                    True
     ..Show_Plane_Shapes                  True
     ..Show_Fill_Plane_Shapes             False
     ..Show_Plane_Data_Behind_Traces      True
-    ..Show_Dynamic_Area_Fills            False
+    ..Show_Dynamic_Area_Fills            True
     ..Show_Plane_Aps_Outlines            True
     ..Show_Plane_Aps_Fills               False
     ..All_Plane_Items_Enabled            True
@@ -1818,8 +1818,8 @@
 
 .view "PCB"
     ..extrema
-	(-14620782,31191583)		! (xmin, ymin)
-	(123782934,92162383)		! (xmax, ymax)
+	(-9667119,31246296)		! (xmin, ymin)
+	(126060161,85456896)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
@@ -13578,8 +13578,8 @@
 	"Option.PlaceObjects.Parts.Top" "1"
 	"Option.PlaceObjects.Selectable" "1"
 	"Option.PlaceObstructsHeight" "1"
-	"Option.Planes.Data.Enabled" "0"
-	"Option.Planes.Data.Fill" "2"
+	"Option.Planes.Data.Enabled" "1"
+	"Option.Planes.Data.Fill" "0"
 	"Option.Planes.Enabled" "1"
 	"Option.Planes.Selectable" "1"
 	"Option.Planes.Shape.Enabled" "1"

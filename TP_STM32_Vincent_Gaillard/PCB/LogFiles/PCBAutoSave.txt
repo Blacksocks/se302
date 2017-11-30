@@ -2,13 +2,33 @@
                                 Autosave Log File
                                 -----------------
 
-                      05:56 PM Thursday, November 30, 2017
+                      06:09 PM Thursday, November 30, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\PCB.pcb
 
+Autosave pending at 18:18:10 Thu  Attempting...
+Autosave completed successfully.  18:18:10 Thu
+Autosave pending at 18:23:10 Thu  Attempting...
+Autosave completed successfully.  18:23:10 Thu
+Autosave pending at 18:28:10 Thu  Attempting...
+Autosave completed successfully.  18:28:11 Thu
+Autosave pending at 18:33:44 Thu  Attempting...
+Autosave completed successfully.  18:33:44 Thu
+Autosave pending at 18:38:44 Thu  Attempting...
+Autosave completed successfully.  18:38:45 Thu
+Autosave pending at 18:44:10 Thu  Attempting...
+Autosave completed successfully.  18:44:10 Thu
+Autosave pending at 18:49:10 Thu  Attempting...
+Autosave completed successfully.  18:49:10 Thu
+Autosave pending at 18:54:40 Thu  Attempting...
+Autosave completed successfully.  18:54:40 Thu
+Autosave pending at 19:00:10 Thu  Attempting...
+Autosave completed successfully.  19:00:10 Thu
+Autosave pending at 19:05:40 Thu  Attempting...
+Autosave completed successfully.  19:05:40 Thu
 
                                Autosave log closed
                                -------------------
 
-                      06:04 PM Thursday, November 30, 2017
+                      07:24 PM Thursday, November 30, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\PCB.pcb
 
