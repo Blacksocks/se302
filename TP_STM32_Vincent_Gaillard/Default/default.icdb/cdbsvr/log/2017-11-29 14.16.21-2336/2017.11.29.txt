@@ -1,0 +1,136 @@
+[2017.11.29 14:16:21] [0000m.00s.045ms] [0] WELCOME
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] Base flow version [VX.2.2]
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.11.29 14:16:21] [0000m.00s.045ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1]  User [admin]  PID [2336]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Current working dir [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\help;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] SDD_PLATFORM [win32]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] S: Config file name [ServerWG.cfg]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [2] S: Loading config files
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Config file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.11.29 14:16:21] [0000m.00s.061ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.11.29 14:16:21] [0000m.00s.061ms] [3] S: Config loaded
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Project path [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb] on file system [NTFS]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Project global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb] on file system [NTFS]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.11.29 14:16:21] [0000m.00s.091ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Multi-user mode (config)
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Event polling mode autodetection
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Started up automatically by iCDB Client: WINDOWS01:admin:2116
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Auto close mode
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Database ID [7586-606a-88cc-89ce-e2ac-a1a3-3aca-1a50-64c3-c3f1-0324-f3eb]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: BEGIN dumping
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: Local -> global path prefix list
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [C:\Users] -> [\\WINDOWS01\Users]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\VMshared\]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: Global -> local path prefix list
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [\\vboxsrv\VMshared\] -> [E:\]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: [\\WINDOWS01\Users] -> [C:\Users]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] PathTranslator: END dumping
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: START
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Server startup lock file created
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Listening for client connections on port [10001]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Server network ID [windows01:10.0.2.15,windows01:10001]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Server GUID [429e-1e6d-aba7-0066-523b-e1aa-23be-1a50-495d-3d2c-dc7d-1df8]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Project GUID [7586-606a-88cc-89ce-e2ac-a1a3-3aca-1a50-64c3-c3f1-0324-f3eb]
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Wrote data to server address file
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] S: Server startup lock file removed
+[2017.11.29 14:16:21] [0000m.00s.091ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.11.29 14:16:21] [0000m.00s.679ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.11.29 14:16:21] [0000m.00s.679ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.11.29 14:16:21] [0000m.00s.679ms] [0] S: Local disc access time: 36 us
+[2017.11.29 14:16:21] [0000m.00s.679ms] [0] S: File server access time: 38 us
+[2017.11.29 14:16:21] [0000m.00s.707ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\icdb.dat] size [234184 (228.7 kB)]
+[2017.11.29 14:16:21] [0000m.00s.707ms] [1] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.11.29 14:16:21] [0000m.00s.707ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.707ms] [0] Database GUARD OK: [234184]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] Database GUARD OK: [234184]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] Database GUARD OK: [234184]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] Database GUARD OK: [234184]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] Database GUARD OK: [234184]
+[2017.11.29 14:16:21] [0000m.00s.721ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] SFI version check [1009] [1009]
+[2017.11.29 14:16:21] [0000m.00s.735ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] Database SFI header has been read in [8ms 509us]
+[2017.11.29 14:16:21] [0000m.00s.748ms] [0] iCDB Server PI: Server & plugin session [4140]
+[2017.11.29 14:16:21] [0000m.00s.748ms] [0] iCDB Server PI: Opening database [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb]
+[2017.11.29 14:16:21] [0000m.00s.748ms] [0] iCDB Server PI: Database [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb] opened
+[2017.11.29 14:16:21] [0000m.00s.872ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.11.29 14:16:21] [0000m.00s.872ms] [0] iCDB Database: Checking constraint definitions version
+[2017.11.29 14:16:22] [0000m.01s.437ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=d077-c76f-3e54-155f-ea37-50a3-b375-0a50-084d-3d2c-dc7d-1df8] up to date
+[2017.11.29 14:16:22] [0000m.01s.479ms] [0] iCDB Server PI: Initializing plugins
+[2017.11.29 14:16:22] [0000m.01s.479ms] [0] iCDB Server PI: Plugins initialized
+[2017.11.29 14:16:22] [0000m.01s.479ms] [0] S: iCDB database loaded
+[2017.11.29 14:16:22] [0000m.01s.493ms] [0] S: Starting threads
+[2017.11.29 14:16:22] [0000m.01s.493ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.11.29 14:16:22] [0000m.01s.493ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2017.11.29 14:16:22] [0000m.01s.493ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.11.29 14:16:22] [0000m.01s.520ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.11.29 14:16:22] [0000m.01s.520ms] [0] IT: Session [4141] for host [windows01] user [admin] with process ID [2116] created
+[2017.11.29 14:16:22] [0000m.01s.520ms] [1] SC[4141]: Registered sub-client [DCDV] with ID [1] for session ID [4141] host [windows01] user [admin] process ID [2116]
+[2017.11.29 14:16:22] [0000m.01s.534ms] [0] IT: iCDB Server Monitor session [1] for host [windows01] user [admin] with process ID [800] created
+[2017.11.29 14:16:22] [0000m.01s.534ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.11.29 14:16:22] [0000m.01s.589ms] [1] CMT: There are [1] clients now: 4141
+[2017.11.29 14:17:42] [0001m.21s.059ms] [0] DFAMT: File server access time: 141 us
+[2017.11.29 15:12:34] [0056m.13s.619ms] [0] IT: Session [4142] for host [windows01] user [admin] with process ID [1872] created
+[2017.11.29 15:12:34] [0056m.13s.619ms] [1] SC[4142]: Registered sub-client [ICDBC] with ID [1] for session ID [4142] host [windows01] user [admin] process ID [1872]
+[2017.11.29 15:12:34] [0056m.13s.666ms] [1] SC[4142]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4142] host [windows01] user [admin] process ID [1872]
+[2017.11.29 15:12:34] [0056m.13s.713ms] [1] CMT: There are [2] clients now: 4141, 4142
+[2017.11.29 15:12:37] [0056m.16s.385ms] [1] SC[4142]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4142] host [windows01] user [admin] process ID [1872]
+[2017.11.29 15:12:37] [0056m.16s.400ms] [1] SC[4142]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4142] host [windows01] user [admin] process ID [1872]
+[2017.11.29 15:12:37] [0056m.16s.463ms] [1] CMT: Removed client [4142]
+[2017.11.29 15:12:37] [0056m.16s.463ms] [1] CMT: There are [1] clients now: 4141
+[2017.11.29 15:12:38] [0056m.17s.385ms] [0] IT: Session [4143] for host [windows01] user [admin] with process ID [1668] created
+[2017.11.29 15:12:38] [0056m.17s.400ms] [1] SC[4143]: Registered sub-client [Packager_3424984] with ID [1] for session ID [4143] host [windows01] user [admin] process ID [1668]
+[2017.11.29 15:12:38] [0056m.17s.478ms] [1] CMT: There are [2] clients now: 4141, 4143
+[2017.11.29 15:12:38] [0056m.17s.931ms] [1] SC[4143]: UnRegistered sub-client [Packager_3424984] with ID [1] for session ID [4143] host [windows01] user [admin] process ID [1668]
+[2017.11.29 15:12:39] [0056m.18s.056ms] [1] CMT: Removed client [4143]
+[2017.11.29 15:12:39] [0056m.18s.056ms] [1] CMT: There are [1] clients now: 4141
+[2017.11.29 15:12:50] [0056m.29s.260ms] [1] SC[4141]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4141] host [windows01] user [admin] process ID [2116]
+[2017.11.29 15:12:50] [0056m.29s.369ms] [1] CMT: Removed client [4141]
+[2017.11.29 15:12:50] [0056m.29s.369ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.11.29 15:12:50] [0056m.29s.494ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.11.29 15:12:52] [0056m.31s.088ms] [0] CMT: Starting server auto-close
+[2017.11.29 15:12:52] [0056m.31s.197ms] [0] S: Closing server
+[2017.11.29 15:12:52] [0056m.31s.213ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.11.29 15:12:52] [0056m.31s.338ms] [0] iCDB Server PI: Closing plugins
+[2017.11.29 15:12:52] [0056m.31s.338ms] [0] iCDB Server PI: Plugins closed
+[2017.11.29 15:12:52] [0056m.31s.338ms] [0] iCDB Server PI: Unloading database
+[2017.11.29 15:12:52] [0056m.31s.338ms] [0] iCDB Server PI: Saving storage
+[2017.11.29 15:12:52] [0056m.31s.338ms] [0] iCDB Server PI: Closing database
+[2017.11.29 15:12:52] [0056m.31s.338ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[21%] data[92%]
+[2017.11.29 15:12:52] [0056m.31s.338ms] [1] iCDB Server PI: Stats: Database file size [281080 (274.5 kB)]
+[2017.11.29 15:12:52] [0056m.31s.338ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.11.29 15:12:52] [0056m.31s.369ms] [0] iCDB Server PI: Database closed
+[2017.11.29 15:12:52] [0056m.31s.369ms] [0] iCDB Server PI: Defragmenting database
+[2017.11.29 15:12:52] [0056m.31s.369ms] [0] iCDB Server PI: Creating database [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb] backup to file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbback\2017-11-29 15.12.52-2336-d.zip]
+[2017.11.29 15:12:52] [0056m.31s.541ms] [0] iCDB Server PI: Database backup: DONE
+[2017.11.29 15:12:52] [0056m.31s.556ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.11.29 15:12:52] [0056m.31s.556ms] [0] Database GUARD OK: [281080]
+[2017.11.29 15:12:52] [0056m.31s.556ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] SFI version check [1009] [1009]
+[2017.11.29 15:12:52] [0056m.31s.588ms] [0] SingleFile: [bce6-d5ff-b5bb-970b] Database SFI header has been read in [29ms 643us]
+[2017.11.29 15:12:52] [0056m.31s.666ms] [1] iCDB Server PI: Stats: Database file sizes: before[281080 (274.5 kB)], after[215408 (210.4 kB)], gain[65672 (64.1 kB)]
+[2017.11.29 15:12:52] [0056m.31s.666ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\icdb.dat] closed with size [215408 (210.4 kB)]
+[2017.11.29 15:12:52] [0056m.31s.666ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.11.29 15:12:52] [0056m.31s.666ms] [1] BackupTransaction: Removing database backup [C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\Default\default.icdb\cdbback\2017-11-29 15.12.52-2336-d.zip]
+[2017.11.29 15:12:52] [0056m.31s.963ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [2932173] ticks
+[2017.11.29 15:12:52] [0056m.31s.963ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [293217] microseconds
+[2017.11.29 15:12:52] [0056m.31s.963ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [354]
+[2017.11.29 15:12:52] [0056m.31s.963ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [1207] commands per second
+[2017.11.29 15:12:53] [0056m.32s.072ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.11.29 15:12:53] [0056m.32s.166ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.11.29 15:12:53] [0056m.32s.291ms] [0] MWT: Destroy the shutdown block reason.
+[2017.11.29 15:12:53] [0056m.32s.291ms] [0] MWT: STOP
+[2017.11.29 15:12:53] [0056m.32s.291ms] [0] S: STOP

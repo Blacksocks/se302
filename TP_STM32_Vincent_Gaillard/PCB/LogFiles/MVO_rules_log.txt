@@ -1,6 +1,3 @@
 
 Can not open Multiple Via Rules file. File doesn't exist:
-       'C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\Config\MultiViaRules.txt'
-
-Can not open Multiple Via Rules file. File doesn't exist:
-       'C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\Layout\MVO_Rules.txt'
+       'C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\Config\MultiViaRules.hkp'

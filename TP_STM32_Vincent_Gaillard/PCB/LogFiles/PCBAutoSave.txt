@@ -2,13 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                       04:05 PM Monday, November 27, 2017
+                      05:56 PM Thursday, November 30, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\PCB.pcb
 
 
                                Autosave log closed
                                -------------------
 
-                       04:06 PM Monday, November 27, 2017
+                      06:04 PM Thursday, November 30, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\TP_STM32_Vincent_Gaillard\PCB\PCB.pcb
 
